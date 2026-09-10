@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title','More Details')
-@section('page-title', 'Papua New Guinea Airports')
+@section('page-title', 'Vietnam Airports')
 
 @push('styles')
 <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
@@ -249,6 +249,11 @@
                                 <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/private-airport.png" style="width:18px; height:18px;">
                                 <small>Private</small>
                             </button>
+
+                             <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#">
+                                  <img src="https://pg.concordreview.com/wp-content/uploads/2025/11/helipad-removebg.png" style="width:18px; height:18px;">
+                                  <small>Helipad</small>
+                              </button>
                         </div>
 
                     </div>

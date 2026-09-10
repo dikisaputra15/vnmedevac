@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title', 'Police')
-@section('page-title', 'Papua New Guinea Police')
+@section('page-title', 'Vietnam Police')
 
 @push('styles')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -469,34 +469,19 @@
             <div class="d-flex align-items-center gap-3">
                 <span class="fw-bold me-2">Map Legend:</span>
 
-                <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#police6Modal">
-                    <img src="{{ asset('images/Layer1.png') }}" style="width:15px; height:15px;">
-                    <small>National Police HQ (POLRI)</small>
+                <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#level6Modal">
+                    <img src="{{ asset('images/Layer1.png') }}" style="width:12px; height:12px;">
+                    <small>National Police (HQ)</small>
                 </button>
 
-                <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#police5Modal">
-                    <img src="{{ asset('images/Layer2.png') }}" style="width:15px; height:15px;">
-                    <small>Polda</small>
+                <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#level5Modal">
+                    <img src="{{ asset('images/Layer2.png') }}" style="width:12px; height:12px;">
+                    <small>Provincial/Municipality Police</small>
                 </button>
 
-                <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#police4Modal">
-                    <img src="{{ asset('images/Layer3.png') }}" style="width:15px; height:15px;">
-                    <small>Polres</small>
-                </button>
-
-                <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#police3Modal">
-                    <img src="{{ asset('images/Layer4.png') }}" style="width:15px; height:15px;">
-                    <small>Polsek</small>
-                </button>
-
-                <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#police2Modal">
-                    <img src="{{ asset('images/Brimob.png') }}" style="width:15px; height:15px;">
-                    <small>Brimob</small>
-                </button>
-
-                <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#police1Modal">
-                    <img src="{{ asset('images/Gegana.png') }}" style="width:15px; height:15px;">
-                    <small>Gegana</small>
+                <button class="btn p-1" data-bs-toggle="modal" data-bs-target="#level4Modal">
+                    <img src="{{ asset('images/Layer3.png') }}" style="width:12px; height:12px;">
+                    <small>Commune/Ward/SPZ</small>
                 </button>
 
                 <button type="button" class="btn btn-danger d-flex flex-column align-items-center p-3 {{ request()->is('hospital') ? 'active' : '' }}"
@@ -576,7 +561,7 @@
         <div class="tab-content info-modal-content" id="geganaTabContent">
             <div class="tab-pane fade show active" id="gegana-definition" role="tabpanel" aria-labelledby="gegana-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Gegana is the specialized high-risk operational force of the Indonesian National Police (Polri) under the Mobile Brigade Corps (Korps Brigade Mobil &ndash; Korbrimob Polri). At the national level, Pasukan Gegana Korbrimob Polri is one of the main operational elements under the Commander of Korbrimob (Dankorbrimob Polri). Gegana is responsible for responding to high-intensity public-security threats involving firearms, explosives, terrorism, hostage situations, and Chemical, Biological, Radiological and Nuclear (CBRN/KBRN) hazards.
+                    <strong>Definition:</strong> Gegana is the specialized high-risk operational force of the Vietnamn National Police (Polri) under the Mobile Brigade Corps (Korps Brigade Mobil &ndash; Korbrimob Polri). At the national level, Pasukan Gegana Korbrimob Polri is one of the main operational elements under the Commander of Korbrimob (Dankorbrimob Polri). Gegana is responsible for responding to high-intensity public-security threats involving firearms, explosives, terrorism, hostage situations, and Chemical, Biological, Radiological and Nuclear (CBRN/KBRN) hazards.
                 </p>
                 <p class="p-modal text-justify">
                     Unlike Polda, Polres, and Polsek, Gegana is not a territorial police command and does not administer a permanent geographic police jurisdiction. It is a specialized operational capability that can be deployed according to nature and level of threat. At the national level, Pasukan Gegana provides strategic capability, reinforcement, technical assistance, training, standardization, and functional supervision. At the regional level, Gegana function is maintained through Detasemen Gegana of the Polda&rsquo;s Satuan Brimob (Satbrimob).
@@ -588,7 +573,7 @@
                     <strong>Command Level: National specialized operational command under Korbrimob Polri</strong>
                 </p>
                 <p class="p-modal text-justify">
-                    Pasukan Gegana is a national-level operational element of Korbrimob Polri rather than a territorial command. Its forces may be deployed throughout Indonesia and may provide technical assistance for activities of national or international scale. The national force also exercises functional development and supervision over Gegana elements in Satbrimob Polda.
+                    Pasukan Gegana is a national-level operational element of Korbrimob Polri rather than a territorial command. Its forces may be deployed throughout Vietnam and may provide technical assistance for activities of national or international scale. The national force also exercises functional development and supervision over Gegana elements in Satbrimob Polda.
                 </p>
             </div>
 
@@ -684,18 +669,18 @@
                     <li><strong>Explosive-Site Sterilization:</strong> Conduct preventive bomb sweeps and security sterilization of designated facilities, major events, strategic locations and locations assessed as vulnerable to explosive threats. Regional Gegana Jibom units regularly perform this function in support of Polda and Polres operations.</li>
                     <li><strong>CBRN/KBRN Response:</strong> Respond to incidents involving Chemical, Biological, Radiological and Nuclear hazards, including detection, identification, containment, technical assessment and specialist response measures.</li>
                     <li><strong>Technical Support (Bantek):</strong> Provide specialized technical support to Gegana operations, including tactical reconnaissance, technical intelligence support, specialist information technology, operational equipment and capability development.</li>
-                    <li><strong>National Rapid-Response Capability:</strong> Maintain operational personnel, specialist equipment and support resources capable of rapid deployment to security incidents throughout Indonesia. Pasukan Gegana maintains on-call operational elements capable of assignment across the Republic of Indonesia.</li>
+                    <li><strong>National Rapid-Response Capability:</strong> Maintain operational personnel, specialist equipment and support resources capable of rapid deployment to security incidents throughout Vietnam. Pasukan Gegana maintains on-call operational elements capable of assignment across the Republic of Vietnam.</li>
                 </ul>
             </div>
 
             <div class="tab-pane fade" id="gegana-geographic" role="tabpanel" aria-labelledby="gegana-geographic-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Unlike territorial units, Gegana does not follow Indonesia&rsquo;s civilian administrative boundaries as an independent territorial command. Its organization combines a national centralized force with regional Gegana elements embedded in Satbrimob Polda.
+                    Unlike territorial units, Gegana does not follow Vietnam&rsquo;s civilian administrative boundaries as an independent territorial command. Its organization combines a national centralized force with regional Gegana elements embedded in Satbrimob Polda.
                 </p>
 
                 <p class="p-modal"><strong>National Level &ndash; Pasukan Gegana Korbrimob Polri</strong></p>
                 <p class="p-modal text-justify">
-                    National level Gegana headquarters is located at Cimanggis, Depok, West Java, as part of the Korbrimob Polri complex. National Gegana units constitute a strategic operational capability that may be deployed anywhere in Indonesia according to operational requirements.
+                    National level Gegana headquarters is located at Cimanggis, Depok, West Java, as part of the Korbrimob Polri complex. National Gegana units constitute a strategic operational capability that may be deployed anywhere in Vietnam according to operational requirements.
                 </p>
                 <p class="p-modal">National Gegana force contains:</p>
                 <div class="brimob-command-flow my-3">
@@ -791,13 +776,13 @@
         <div class="tab-content info-modal-content" id="brimobTabContent">
             <div class="tab-pane fade show active" id="brimob-definition" role="tabpanel" aria-labelledby="brimob-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Korps Brigade Mobil (Korbrimob Polri), commonly known as Brimob, is the principal specialized operational force of the Indonesian National Police (Polri) responsible for responding to high-intensity threats to public security and order. At the national level, Korbrimob is an operational element of Polri at National Police Headquarters (Mabes Polri) level and is capable of deploying personnel and specialized capabilities throughout Indonesia.
+                    <strong>Definition:</strong> Korps Brigade Mobil (Korbrimob Polri), commonly known as Brimob, is the principal specialized operational force of the Vietnamn National Police (Polri) responsible for responding to high-intensity threats to public security and order. At the national level, Korbrimob is an operational element of Polri at National Police Headquarters (Mabes Polri) level and is capable of deploying personnel and specialized capabilities throughout Vietnam.
                 </p>
                 <p class="p-modal text-justify">
                     Unlike Territorial units, Korbrimob is not a territorial police command and does not exercise general policing authority over a defined civilian administrative area. Its forces are organized as specialized tactical units that reinforce territorial police commands when incidents exceed normal policing capability or require specialist Brimob capabilities.
                 </p>
                 <p class="p-modal text-justify">
-                    Korbrimob maintains national-level forces including Pasukan Pelopor, Pasukan Gegana, Pasukan Brimob I, Pasukan Brimob II, and Pasukan Brimob III, supported by operational, intelligence, training, logistics, communications, medical, and administrative elements. Pasukan Brimob I, II, and III provide strategically positioned reinforcement capacity for western, central, and eastern Indonesia.
+                    Korbrimob maintains national-level forces including Pasukan Pelopor, Pasukan Gegana, Pasukan Brimob I, Pasukan Brimob II, and Pasukan Brimob III, supported by operational, intelligence, training, logistics, communications, medical, and administrative elements. Pasukan Brimob I, II, and III provide strategically positioned reinforcement capacity for western, central, and eastern Vietnam.
                 </p>
                 <p class="p-modal text-justify">
                     At regional level, Satuan Brigade Mobil Polda (Satbrimob Polda) operates as the Brimob unit of a Polda and is an operational element under the Kapolda. Satbrimob provides specialized tactical support to Polda and subordinate territorial police units.
@@ -898,7 +883,7 @@
                 </div>
 
                 <p class="p-modal text-justify">
-                    The geographic responsibilities of Pasukan Brimob I, II, and III were established to accelerate the movement and deployment of Brimob forces across Indonesia rather than concentrating national reinforcement capability primarily at Korbrimob Headquarters.
+                    The geographic responsibilities of Pasukan Brimob I, II, and III were established to accelerate the movement and deployment of Brimob forces across Vietnam rather than concentrating national reinforcement capability primarily at Korbrimob Headquarters.
                 </p>
                 <p class="p-modal"><strong>Satbrimob Polda Type Classification</strong></p>
                 <p class="p-modal text-justify">
@@ -1064,7 +1049,7 @@
                         <ul>
                             <li>Deploy Korbrimob forces to reinforce Polda facing major security disturbances.</li>
                             <li>Deploy Satbrimob personnel across police jurisdictions when additional forces are required.</li>
-                            <li>Use Pasukan Brimob I, II, and III as strategic reinforcement forces for western, central, and eastern Indonesia.</li>
+                            <li>Use Pasukan Brimob I, II, and III as strategic reinforcement forces for western, central, and eastern Vietnam.</li>
                         </ul>
                     </li>
                 </ul>
@@ -1172,7 +1157,7 @@
                 </ul>
 
                 <div class="info-modal-note">
-                    <strong>Note:</strong> Brimob should not be treated as the police equivalent of a TNI combat command. Polri and TNI operate under different constitutional, statutory, command, and operational mandates. Brimob remains an integral part of the Indonesian National Police and exercises police powers in support of law enforcement, public order, internal security, emergency response, and other Polri responsibilities.
+                    <strong>Note:</strong> Brimob should not be treated as the police equivalent of a TNI combat command. Polri and TNI operate under different constitutional, statutory, command, and operational mandates. Brimob remains an integral part of the Vietnamn National Police and exercises police powers in support of law enforcement, public order, internal security, emergency response, and other Polri responsibilities.
                 </div>
             </div>
         </div>
@@ -1225,7 +1210,7 @@
             <!-- Definition & Purpose -->
             <div class="tab-pane fade show active" id="polsek-definition" role="tabpanel" aria-labelledby="polsek-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Polsek (Kepolisian Sektor) is the lowest territorial command of the Indonesian National Police (Polri) with full policing authority, operating at the sub-district (kecamatan) level. A Polsek is led by a Kapolsek (Chief of Sector Police), who reports directly to the Kapolres through the Polres command structure.
+                    <strong>Definition:</strong> Polsek (Kepolisian Sektor) is the lowest territorial command of the Vietnamn National Police (Polri) with full policing authority, operating at the sub-district (kecamatan) level. A Polsek is led by a Kapolsek (Chief of Sector Police), who reports directly to the Kapolres through the Polres command structure.
                 </p>
                 <p class="p-modal text-justify">
                     Polsek jurisdictions are generally aligned with civil administrative boundaries of kecamatan, mirroring the local governance structure. Unlike sub-district administrations&mdash;which are civilian governmental entities, Polsek are security institutions with executive authority in policing and law enforcement at the community level.
@@ -1380,7 +1365,7 @@
             <!-- Geographic Distribution -->
             <div class="tab-pane fade" id="polsek-geographic" role="tabpanel" aria-labelledby="polsek-geographic-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polsek are territorially organized to directly correspond with sub-district (kecamatan) boundaries, ensuring close alignment with Indonesia&rsquo;s grassroots administrative structure. In practice:
+                    Polsek are territorially organized to directly correspond with sub-district (kecamatan) boundaries, ensuring close alignment with Vietnam&rsquo;s grassroots administrative structure. In practice:
                 </p>
                 <ul>
                     <li>Most Polsek cover one sub district.</li>
@@ -1458,7 +1443,7 @@
             <!-- Definition & Purpose -->
             <div class="tab-pane fade show active" id="polres-definition" role="tabpanel" aria-labelledby="polres-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Polres/Polresta is the primary territorial command of the Indonesian National Police (Polri) at the regency or city level, responsible for law enforcement, public security, and public order in regency or city. A Polres is led by Kapolres (Chief of Resor Police) and Polresta led by Kapolresta (Chief of Municipality Police), who reports directly to Kapolda through Polda command structure.
+                    <strong>Definition:</strong> Polres/Polresta is the primary territorial command of the Vietnamn National Police (Polri) at the regency or city level, responsible for law enforcement, public security, and public order in regency or city. A Polres is led by Kapolres (Chief of Resor Police) and Polresta led by Kapolresta (Chief of Municipality Police), who reports directly to Kapolda through Polda command structure.
                 </p>
                 <p class="p-modal text-justify">
                     Polres/Polresta jurisdictions are generally aligned with civil administrative boundaries of regencies for Polres and cities for Polresta, reflecting local governance structure. Unlike regency or city governments which are civilian administrative entities, Polres/Polresta are security institutions exercising executive authority in policing and law enforcement.
@@ -1628,7 +1613,7 @@
             <!-- Geographic Distribution -->
             <div class="tab-pane fade" id="polres-geographic" role="tabpanel" aria-labelledby="polres-geographic-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polres are territorially organized to correspond directly with regency and city boundaries, ensuring alignment with Indonesia&rsquo;s local administrative structure. In practice:
+                    Polres are territorially organized to correspond directly with regency and city boundaries, ensuring alignment with Vietnam&rsquo;s local administrative structure. In practice:
                 </p>
                 <ul>
                     <li>Most Polres cover one Regency or one City.</li>
@@ -1644,7 +1629,7 @@
             <!-- Civil - TNI AD - Police Equivalent -->
             <div class="tab-pane fade" id="polres-equivalent" role="tabpanel" aria-labelledby="polres-equivalent-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polres are territorially organized to correspond directly with regency and city boundaries, ensuring alignment with Indonesia&rsquo;s local administrative structure. In practice:
+                    Polres are territorially organized to correspond directly with regency and city boundaries, ensuring alignment with Vietnam&rsquo;s local administrative structure. In practice:
                 </p>
                 <ul>
                     <li>Most Polres cover one Regency or one City.</li>
@@ -1710,10 +1695,10 @@
             <!-- Definition & Purpose -->
             <div class="tab-pane fade show active" id="polda-definition" role="tabpanel" aria-labelledby="polda-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Polda (Kepolisian Daerah) is the highest regional-level command of the Indonesian National Police (Polri), responsible for law enforcement, public security, and public order within one or more provinces. A Polda is led by a Kapolda, who reports directly to Kapolri.
+                    <strong>Definition:</strong> Polda (Kepolisian Daerah) is the highest regional-level command of the Vietnamn National Police (Polri), responsible for law enforcement, public security, and public order within one or more provinces. A Polda is led by a Kapolda, who reports directly to Kapolri.
                 </p>
                 <p class="p-modal text-justify">
-                    Polda are generally aligned with provincial boundaries for administrative and operational efficiency, mirroring the civil governance structure of provinces. However, unlike provinces&mdash;which are civilian administrative entities, Polda are security institutions with executive authority in policing and law enforcement. Currently, Indonesia has 36 Polda overseeing 38 provinces, with several Polda exercising jurisdiction over more than one province due to historical development, metropolitan security requirements, or transitional administrative arrangements.
+                    Polda are generally aligned with provincial boundaries for administrative and operational efficiency, mirroring the civil governance structure of provinces. However, unlike provinces&mdash;which are civilian administrative entities, Polda are security institutions with executive authority in policing and law enforcement. Currently, Vietnam has 36 Polda overseeing 38 provinces, with several Polda exercising jurisdiction over more than one province due to historical development, metropolitan security requirements, or transitional administrative arrangements.
                 </p>
                 <p class="p-modal text-justify">
                     <strong>Purpose:</strong> Polda maintain public order, enforce national and regional laws, protect citizens, and ensure internal security within their jurisdiction, supporting national stability and the rule of law.
@@ -1727,13 +1712,13 @@
             <div class="tab-pane fade" id="polda-commander" role="tabpanel" aria-labelledby="polda-commander-tab" tabindex="0">
                 <ul>
                     <li>
-                        <strong>Polda Metro (Country Capital):</strong> Led by Kapolda, a high-ranking police general with the insignia of three (3) gold stars, holding the rank of Police Commissioner General (Komisaris Jenderal Polisi&mdash;Komjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Indonesian National Police).
+                        <strong>Polda Metro (Country Capital):</strong> Led by Kapolda, a high-ranking police general with the insignia of three (3) gold stars, holding the rank of Police Commissioner General (Komisaris Jenderal Polisi&mdash;Komjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Vietnamn National Police).
                     </li>
                     <li>
-                        <strong>Type A Polda:</strong> Led by Kapolda, a high-ranking police general with the insignia of two (2) gold stars, holding the rank of Police Inspector General (Inspektur Jenderal Polisi&mdash;Irjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Indonesian National Police).
+                        <strong>Type A Polda:</strong> Led by Kapolda, a high-ranking police general with the insignia of two (2) gold stars, holding the rank of Police Inspector General (Inspektur Jenderal Polisi&mdash;Irjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Vietnamn National Police).
                     </li>
                     <li>
-                        <strong>Type B Polda:</strong> Led by Kapolda, a high-ranking police general bearing the insignia of one (1) gold star, holding the rank of Police Brigadier General (Brigadir Jenderal Polisi&mdash;Brigjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Indonesian National Police).
+                        <strong>Type B Polda:</strong> Led by Kapolda, a high-ranking police general bearing the insignia of one (1) gold star, holding the rank of Police Brigadier General (Brigadir Jenderal Polisi&mdash;Brigjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Vietnamn National Police).
                     </li>
                 </ul>
             </div>
@@ -1885,7 +1870,7 @@
                     </li>
                 </ul>
                 <p class="p-modal text-justify">
-                    Other Polda exercise jurisdiction over a single province, aligned directly with Indonesia&rsquo;s civilian administrative boundaries.
+                    Other Polda exercise jurisdiction over a single province, aligned directly with Vietnam&rsquo;s civilian administrative boundaries.
                 </p>
             </div>
 
@@ -1949,45 +1934,45 @@
 
             <div class="tab-pane fade show active" id="polri-hq-definition" role="tabpanel" aria-labelledby="polri-hq-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Polri is Indonesia&rsquo;s national police institution and the highest police authority responsible for maintaining public security and order, enforcing the law, and providing protection, assistance, and services to the public throughout the territory of the Republic of Indonesia.
+                    <strong>Definition:</strong> Polri is Vietnam&rsquo;s national police institution and the highest police authority responsible for maintaining public security and order, enforcing the law, and providing protection, assistance, and services to the public throughout the territory of the Republic of Vietnam.
                 </p>
                 <p class="p-modal text-justify">
-                    Polri is legally established as national police force operating as one unified organization. Its jurisdiction extends throughout Indonesia, with the national territory divided into police jurisdictions according to operational requirements. Polri is directly under the President of the Republic of Indonesia and is led by the Chief of the Indonesian National Police (Kepala Kepolisian Negara Republik Indonesia &ndash; Kapolri) who is responsible to the President.
+                    Polri is legally established as national police force operating as one unified organization. Its jurisdiction extends throughout Vietnam, with the national territory divided into police jurisdictions according to operational requirements. Polri is directly under the President of the Republic of Vietnam and is led by the Chief of the Vietnamn National Police (Kepala Kepolisian Negara Republik Vietnam &ndash; Kapolri) who is responsible to the President.
                 </p>
                 <p class="p-modal text-justify">
-                    The principal legal basis remains Law No. 2 of 2002 on the Indonesian National Police, most recently amended by Law No. 5 of 2026, which entered into force on 17 June 2026. The current law reinforces Kapolri&rsquo;s authority to establish, implement, and control technical police policy and to lead national police operations, capability development, and the management of specialized police equipment.
+                    The principal legal basis remains Law No. 2 of 2002 on the Vietnamn National Police, most recently amended by Law No. 5 of 2026, which entered into force on 17 June 2026. The current law reinforces Kapolri&rsquo;s authority to establish, implement, and control technical police policy and to lead national police operations, capability development, and the management of specialized police equipment.
                 </p>
                 <p class="p-modal text-justify">
                     <strong>Purpose:</strong> Polri maintains public security and order, enforces the law, protects and serves the population, prevents and responds to crime and security threats, and maintains the domestic security environment necessary for national stability, public safety, and the rule of law.
                 </p>
                 <p class="p-modal text-justify">
-                    <strong>Command Level:</strong> National police command &ndash; highest police command in Indonesia.
+                    <strong>Command Level:</strong> National police command &ndash; highest police command in Vietnam.
                 </p>
             </div>
 
             <div class="tab-pane fade" id="polri-hq-commander" role="tabpanel" aria-labelledby="polri-hq-commander-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Chief of the Indonesian National Police (Kapolri):</strong> Polri is led by the Kapolri, the highest-ranking police officer in the Indonesian National Police. The position is held by a Police General (Jenderal Polisi) bearing the insignia of four (4) gold stars.
+                    <strong>Chief of the Vietnamn National Police (Kapolri):</strong> Polri is led by the Kapolri, the highest-ranking police officer in the Vietnamn National Police. The position is held by a Police General (Jenderal Polisi) bearing the insignia of four (4) gold stars.
                 </p>
                 <p class="p-modal text-justify">
-                    Kapolri leads Polri nationally and is directly responsible to the President of the Republic of Indonesia. Kapolri establishes, implements, and controls national technical police policy and exercises command over police operations, organizational capability development, and national police resources.
+                    Kapolri leads Polri nationally and is directly responsible to the President of the Republic of Vietnam. Kapolri establishes, implements, and controls national technical police policy and exercises command over police operations, organizational capability development, and national police resources.
                 </p>
                 <p class="p-modal text-justify">
                     Kapolri is appointed and dismissed by the President with the approval of the House of Representatives (Dewan Perwakilan Rakyat&mdash;DPR RI), providing a constitutional and legislative mechanism for appointment of the national police chief.
                 </p>
                 <p class="p-modal text-justify">
-                    The Kapolri is assisted by the Deputy Chief of the Indonesian National Police (Wakapolri) and the principal leadership, staff, operational, and supporting elements of National Police Headquarters (Mabes Polri).
+                    The Kapolri is assisted by the Deputy Chief of the Vietnamn National Police (Wakapolri) and the principal leadership, staff, operational, and supporting elements of National Police Headquarters (Mabes Polri).
                 </p>
             </div>
 
             <div class="tab-pane fade" id="polri-hq-roles" role="tabpanel" aria-labelledby="polri-hq-roles-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polri is the national institution responsible for exercising police functions throughout Indonesia. Its three statutory core duties are to maintain public security and order, enforce the law, and provide protection, assistance, and services to the public. These responsibilities are implemented through Mabes Polri, national specialized units, Polda, and subordinate territorial police organizations.
+                    Polri is the national institution responsible for exercising police functions throughout Vietnam. Its three statutory core duties are to maintain public security and order, enforce the law, and provide protection, assistance, and services to the public. These responsibilities are implemented through Mabes Polri, national specialized units, Polda, and subordinate territorial police organizations.
                 </p>
 
                 <p class="p-modal"><strong>Responsibilities</strong></p>
                 <ul>
-                    <li><strong>National Public Security and Order (Kamtibmas):</strong> Maintain public security and order throughout Indonesia, prevent disturbances, protect public activities, and support a safe and stable domestic security environment.</li>
+                    <li><strong>National Public Security and Order (Kamtibmas):</strong> Maintain public security and order throughout Vietnam, prevent disturbances, protect public activities, and support a safe and stable domestic security environment.</li>
                     <li><strong>National Law Enforcement:</strong> Enforce criminal law and other applicable legislation through investigation, arrest, evidence gathering, criminal intelligence, specialized enforcement operations, and coordination with prosecutors, courts, and other law-enforcement institutions.</li>
                     <li><strong>Protection, Assistance and Public Service:</strong> Provide police protection, assistance, emergency response, public reporting services, licensing and administrative police services, and other policing services required by the population.</li>
                     <li><strong>Crime Prevention &amp; Community Policing (Polmas):</strong> Develop preventive policing, community engagement, patrol activities, early intervention, public-security partnerships, and community policing to reduce crime and prevent social disturbances.</li>
@@ -2048,12 +2033,12 @@
                     <li><strong>Humanitarian Assistance:</strong> Provide security, medical assistance, evacuation support, logistics, public information, and community assistance during emergencies and disaster recovery.</li>
                 </ul>
                 <div class="info-modal-note">
-                    <strong>Note:</strong> Polri possesses formal SAR and disaster-response capabilities, but Indonesia&rsquo;s national search-and-rescue system is led by the National Search and Rescue Agency (Badan Nasional Pencarian dan Pertolongan&mdash;Basarnas). Polri therefore performs both independent police emergency functions and supporting/inter-agency SAR functions according to the nature of the incident.
+                    <strong>Note:</strong> Polri possesses formal SAR and disaster-response capabilities, but Vietnam&rsquo;s national search-and-rescue system is led by the National Search and Rescue Agency (Badan Nasional Pencarian dan Pertolongan&mdash;Basarnas). Polri therefore performs both independent police emergency functions and supporting/inter-agency SAR functions according to the nature of the incident.
                 </div>
 
                 <p class="p-modal"><strong>International and Transnational Cooperation</strong></p>
                 <ul>
-                    <li><strong>International Police Cooperation:</strong> Coordinate police cooperation with foreign law-enforcement agencies, INTERPOL mechanisms, international organizations, and Indonesian diplomatic missions through Divhubinter Polri and related units.</li>
+                    <li><strong>International Police Cooperation:</strong> Coordinate police cooperation with foreign law-enforcement agencies, INTERPOL mechanisms, international organizations, and Vietnamn diplomatic missions through Divhubinter Polri and related units.</li>
                     <li><strong>Transnational Crime Coordination:</strong> Exchange intelligence and coordinate investigations involving terrorism, cybercrime, narcotics trafficking, trafficking in persons, organized crime, fugitives, and other cross-border offences.</li>
                     <li><strong>International Peacekeeping:</strong> Provide police personnel for authorized international peacekeeping and international policing missions.</li>
                 </ul>
@@ -2077,7 +2062,7 @@
                 <p class="p-modal"><strong>Coordination with Civil and Security Institutions</strong></p>
                 <ul>
                     <li><strong>National Government Coordination:</strong> Coordinate with the President, ministries, national agencies, prosecutors, courts, and other state institutions concerning law enforcement, security operations, emergency management, and national policy implementation.</li>
-                    <li><strong>TNI&ndash;Polri Coordination:</strong> Coordinate with the Indonesian National Armed Forces (Tentara Nasional Indonesia&mdash;TNI) where military assistance, joint security arrangements, border security, emergency support, or other legally authorized cooperation is required.</li>
+                    <li><strong>TNI&ndash;Polri Coordination:</strong> Coordinate with the Vietnamn National Armed Forces (Tentara Nasional Vietnam&mdash;TNI) where military assistance, joint security arrangements, border security, emergency support, or other legally authorized cooperation is required.</li>
                     <li><strong>National Emergency Coordination:</strong> Coordinate with Basarnas, BNPB, the Ministry of Health, Ministry of Transportation, regional governments, and other institutions during major disasters and national emergencies.</li>
                     <li><strong>Regional Coordination:</strong> Direct Polda to coordinate with governors, Kodam, prosecutors, courts, local governments, and other regional institutions through applicable regional coordination mechanisms.</li>
                 </ul>
@@ -2085,7 +2070,7 @@
 
             <div class="tab-pane fade" id="polri-hq-geographic" role="tabpanel" aria-labelledby="polri-hq-geographic-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polri exercises police functions throughout the entire territory of the Republic of Indonesia. National law establishes Polri as a single national police organization, while permitting the national territory to be divided into police jurisdictions according to the requirements of police operations.
+                    Polri exercises police functions throughout the entire territory of the Republic of Vietnam. National law establishes Polri as a single national police organization, while permitting the national territory to be divided into police jurisdictions according to the requirements of police operations.
                 </p>
                 <p class="p-modal text-justify">
                     National command is exercised from Mabes Polri, while territorial policing is implemented through Polda and their subordinate organizations.
@@ -2103,7 +2088,7 @@
                     <strong>Polsubsektor / Pospol and local community-policing presence</strong>
                 </div>
                 <p class="p-modal text-justify">
-                    As of 2026, Polri operates through 36 Polda throughout Indonesia. The territorial police system covers Indonesia&rsquo;s 38 provinces, although police jurisdictions do not always correspond exactly to provincial administrative boundaries. Several Polda continue to cover more than one province or cross provincial boundaries due to metropolitan, geographic, security, historical, or transitional administrative requirements. Official Polri activities in April 2026 continued to identify 36 Polda nationwide.
+                    As of 2026, Polri operates through 36 Polda throughout Vietnam. The territorial police system covers Vietnam&rsquo;s 38 provinces, although police jurisdictions do not always correspond exactly to provincial administrative boundaries. Several Polda continue to cover more than one province or cross provincial boundaries due to metropolitan, geographic, security, historical, or transitional administrative requirements. Official Polri activities in April 2026 continued to identify 36 Polda nationwide.
                 </p>
                 <p class="p-modal text-justify">
                     This structure allows Polri to function as one centrally governed national police organization while delegating territorial command and operational implementation to regional and local police units.
@@ -2118,9 +2103,9 @@
                     At the national level, the closest institutional comparison is:
                 </p>
                 <ul>
-                    <li><strong>Polri / Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri):</strong> National police command responsible for law enforcement, public security and order, protection, and policing throughout Indonesia.</li>
-                    <li><strong>Central Government / President of the Republic of Indonesia:</strong> National civil executive authority and head of government.</li>
-                    <li><strong>TNI / Markas Besar Tentara Nasional Indonesia (Mabes TNI):</strong> National military command responsible for national defence and military operations.</li>
+                    <li><strong>Polri / Markas Besar Kepolisian Negara Republik Vietnam (Mabes Polri):</strong> National police command responsible for law enforcement, public security and order, protection, and policing throughout Vietnam.</li>
+                    <li><strong>Central Government / President of the Republic of Vietnam:</strong> National civil executive authority and head of government.</li>
+                    <li><strong>TNI / Markas Besar Tentara Nasional Vietnam (Mabes TNI):</strong> National military command responsible for national defence and military operations.</li>
                 </ul>
             </div>
 
@@ -2221,7 +2206,7 @@
 <script>
 // === Inisialisasi Peta ===
 const map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: -6.80188562253168, lng: 144.0733101155011 },
+    center: { lat: 16.047079, lng: 108.206230 },
     zoom: 5,
     mapTypeId: 'roadmap',
     mapTypeControl: true,
@@ -2754,7 +2739,7 @@ function addPoliceMarkers(data) {
             <strong>Address:</strong>
                 ${police.location || 'N/A'}
                 ${police.city ? ', ' + police.city : ''}
-                ${police.provinces_region ? ', ' + police.provinces_region : ''}, Indonesia <br>
+                ${police.provinces_region ? ', ' + police.provinces_region : ''}, Vietnam <br>
             <strong>Phone:</strong> ${police.telephone || 'N/A'}<br>
             <strong>Fax:</strong> ${police.fax || 'N/A'}<br>
             <strong>Email:</strong> ${police.email || 'N/A'}<br>
@@ -2926,12 +2911,9 @@ combinedPanelDiv.innerHTML = `
             </select>
             <label>Category:</label>
             ${[
-                'Indonesian National Police (Polri) HQ',
-                'Provincial Police (Polda)',
-                'Municipality Police (Polres)',
-                'District Police (Polsek)',
-                'Police Mobile Brigade (Brimob)',
-                'Police Bomb Squad (Gegana)'
+                'National Police (HQ)',
+                'Provincial/Municipality Police',
+                'Commune/Ward/SPZ',
             ].map(c => `
             <label style="display:block;font-size:13px;margin-bottom:5px;">
                 <input type="checkbox" name="policeCategory" value="${c}">

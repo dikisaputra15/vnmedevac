@@ -21,9 +21,9 @@
 
          <div class="col-md-12">
             <div class="form-group">
-                <label>Province</label>
+                <label>Province/Municipality</label>
                 <select class="form-control" name="province_id" id="province">
-                        <option value="0">-Choosse Province-</option>
+                        <option value="0">-Choosse Province/Municipality-</option>
                     @foreach($provinces as $prov)
                         <option value="{{$prov->id}}">{{$prov->provinces_region}}</option>
                     @endforeach
@@ -33,9 +33,9 @@
 
          <div class="col-md-12">
             <div class="form-group">
-                <label for="city">Regency / City</label>
+                <label for="city">Commune/Ward/Special Zone</label>
                 <select name="city" id="city" class="form-control">
-                    <option value="">-Choose Regency / City-</option>
+                    <option value="">-Choose Commune/Ward/Special Zone-</option>
                 </select>
             </div>
         </div>
@@ -80,53 +80,32 @@
                     <label class="form-check-label">Layer 3</label>
                 </div>
 
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="level" value="Layer 4">
-                    <label class="form-check-label">Layer 4</label>
-                </div>
             </div>
         </div>
 
-         <div class="col-md-12">
+          <div class="col-md-12">
             <div class="form-group">
                 <label>Police Classification (Country)</label><br>
 
                 <input type="hidden" name="icon" id="icon">
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input category-radio" type="radio" name="category" value="Indonesian National Police (Polri) HQ" data-icon="{{ asset('images/Layer1.png') }}">
+                    <input class="form-check-input category-radio" type="radio" name="category" value="National Police (HQ)" data-icon="{{ asset('images/Layer1.png') }}">
                     <img src="{{ asset('images/Layer1.png') }}" style="width:12px; height:12px;">
-                    <label class="form-check-label">Indonesian National Police (Polri) HQ</label>
+                    <label class="form-check-label">National Police (HQ)</label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input category-radio" type="radio" name="category" value="Provincial Police (Polda)" data-icon="{{ asset('images/Layer2.png') }}">
+                    <input class="form-check-input category-radio" type="radio" name="category" value="Provincial/Municipality Police" data-icon="{{ asset('images/Layer2.png') }}">
                     <img src="{{ asset('images/Layer2.png') }}" style="width:12px; height:12px;">
-                    <label class="form-check-label">Provincial Police (Polda)</label>
+                    <label class="form-check-label">Provincial/Municipality Police</label>
                 </div>
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input category-radio" type="radio" name="category" value="Municipality Police (Polres)" data-icon="{{ asset('images/Layer3.png') }}">
+                    <input class="form-check-input category-radio" type="radio" name="category" value="Commune/Ward/SPZ" data-icon="{{ asset('images/Layer3.png') }}">
                     <img src="{{ asset('images/Layer3.png') }}" style="width:12px; height:12px;">
-                    <label class="form-check-label">Municipality Police (Polres)</label>
+                    <label class="form-check-label">Commune/Ward/SPZ</label>
                 </div>
 
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input category-radio" type="radio" name="category" value="District Police (Polsek)" data-icon="{{ asset('images/Layer4.png') }}">
-                    <img src="{{ asset('images/Layer4.png') }}" style="width:12px; height:12px;">
-                    <label class="form-check-label">District Police (Polsek)</label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input category-radio" type="radio" name="category" value="Police Mobile Brigade (Brimob)" data-icon="{{ asset('images/Brimob.png') }}">
-                    <img src="{{ asset('images/Brimob.png') }}" style="width:12px; height:12px;">
-                    <label class="form-check-label">Police Mobile Brigade (Brimob)</label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input category-radio" type="radio" name="category" value="Police Bomb Squad (Gegana)" data-icon="{{ asset('images/Gegana.png') }}">
-                    <img src="{{ asset('images/Gegana.png') }}" style="width:12px; height:12px;">
-                    <label class="form-check-label">Police Bomb Squad (Gegana)</label>
-                </div>
             </div>
         </div>
 

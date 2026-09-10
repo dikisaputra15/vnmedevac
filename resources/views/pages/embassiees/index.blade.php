@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title','Embassiees')
-@section('page-title', 'Indonesia Embassiees')
+@section('page-title', 'Vietnam Embassiees')
 
 @push('styles')
 
@@ -298,7 +298,7 @@
 <script>
 // === Inisialisasi Peta ===
 const map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: -6.80188562253168, lng: 144.0733101155011 },
+    center: { lat: 16.047079, lng: 108.206230 },
     zoom: 6,
     mapTypeId: 'roadmap',
     mapTypeControl: true,
@@ -826,7 +826,7 @@ function addEmbassyMarkers(data) {
             <strong>Address:</strong>
                 ${embassy.location || 'N/A'}
                 ${embassy.city ? ', ' + embassy.city : ''}
-                ${embassy.provinces_region ? ', ' + embassy.provinces_region : ''}, Indonesia <br>
+                ${embassy.provinces_region ? ', ' + embassy.provinces_region : ''}, Vietnam <br>
             <strong>Phone:</strong> ${embassy.telephone || 'N/A'}<br>
             <strong>Fax:</strong> ${embassy.fax || 'N/A'}<br>
             <strong>Email:</strong> ${embassy.email || 'N/A'}<br>

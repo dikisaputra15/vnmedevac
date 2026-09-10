@@ -21,9 +21,9 @@
 
          <div class="col-md-12">
             <div class="form-group">
-                <label>Province</label>
+                <label>Province/Municipality</label>
                 <select class="form-control" name="province_id" id="province">
-                        <option value="0">-Choosse Province-</option>
+                        <option value="0">-Choosse Province/Municipality-</option>
                     @foreach($provinces as $prov)
                         <option value="{{$prov->id}}">{{$prov->provinces_region}}</option>
                     @endforeach
@@ -33,9 +33,9 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <label for="city">City/Regency</label>
+                <label for="city">Commune/Ward/Special Zone</label>
                 <select name="city" id="city" class="form-control">
-                    <option value="">-Choosse City/Regency-</option>
+                    <option value="">-Choosse Commune/Ward/Special Zone-</option>
                 </select>
             </div>
         </div>
@@ -80,9 +80,13 @@
                     <input class="form-check-input" type="checkbox" name="category[]" id="military" value="Military">
                     <label class="form-check-label" for="military">Military</label>
                 </div>
-                  <div class="form-check">
+                <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="category[]" id="private" value="Private">
                     <label class="form-check-label" for="military">Private</label>
+                </div>
+                 <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="category[]" id="helipad" value="Helipad">
+                    <label class="form-check-label" for="helipad">Helipad</label>
                 </div>
             </div>
         </div>
@@ -130,6 +134,7 @@
                         ['url' => 'https://pg.concordreview.com/wp-content/uploads/2024/10/military-airport-red.png', 'label' => 'Military'],
                         ['url' => 'https://pg.concordreview.com/wp-content/uploads/2024/10/civil-military-airport.png', 'label' => 'Combined (Civil - Military)'],
                         ['url' => 'https://pg.concordreview.com/wp-content/uploads/2025/01/private-airport.png', 'label' => 'Private'],
+                        ['url' => 'https://pg.concordreview.com/wp-content/uploads/2025/11/helipad-removebg.png', 'label' => 'Helipad'],
                     ];
                 @endphp
 

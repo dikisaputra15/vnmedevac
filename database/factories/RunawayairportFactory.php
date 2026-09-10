@@ -23,8 +23,8 @@ class RunawayairportFactory extends Factory
             'runway' => $this->faker->randomElement(['09/27', '13/31', '04/22']),
             'dimension' => $this->faker->randomElement(['3000 x 45 m', '2500 x 60 m', '2000 x 30 m']),
             'surface' => $this->faker->randomElement(['Asphalt', 'Concrete', 'Grass']),
-            'latitude' => $this->faker->latitude,
-            'longitude' => $this->faker->longitude,
+            'latitude' => $this->faker->latitude(8.18, 23.39),
+            'longitude' => $this->faker->longitude(102.14, 109.46),
             'elevation' => $this->faker->numberBetween(0, 10000) . ' ft',
             'true_heading' => $this->faker->numberBetween(0, 360),
         ];

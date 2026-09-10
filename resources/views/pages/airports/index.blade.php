@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title', 'Airports')
-@section('page-title', 'Papua New Guinea Airports')
+@section('page-title', 'Vietnam Airports')
 
 @push('styles')
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -286,6 +286,11 @@
                     <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/private-airport.png" style="width:30px; height:30px;">
                     <small>Private</small>
                 </button>
+
+                 <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#">
+                    <img src="https://pg.concordreview.com/wp-content/uploads/2025/11/helipad-removebg.png" style="width:18px; height:18px;">
+                    <small>Helipad</small>
+                </button>
             </div>
 
         </div>
@@ -471,7 +476,7 @@
 <script>
 // === Inisialisasi Peta ===
 const map = new google.maps.Map(document.getElementById('map'), {
-    center: { lat: -4.245820574165665, lng: 122.16203857061076 },
+    center: { lat: 16.047079, lng: 108.206230 },
     zoom: 5,
     mapTypeId: 'roadmap',
     mapTypeControl: true,
@@ -1000,7 +1005,7 @@ function addAirportMarkers(data) {
             <strong>Address:</strong>
                 ${airport.address || 'N/A'}
                 ${airport.city_name ? ', ' + airport.city_name : ''}
-                ${airport.province_name ? ', ' + airport.province_name : ''}, Indonesia <br>
+                ${airport.province_name ? ', ' + airport.province_name : ''}, Vietnam <br>
             <strong>Website:</strong> ${airport.website || 'N/A'} <br>
         `;
 
@@ -1220,7 +1225,7 @@ combinedPanelDiv.innerHTML = `
                 @endforeach
             </select>
             <label>Airport Category:</label>
-            ${['International','Domestic','Military','Regional','Private'].map(c => `
+            ${['International','Domestic','Military','Regional','Private','Helipad'].map(c => `
             <label style="display:block;font-size:13px;margin-bottom:5px;">
                 <input type="checkbox" name="airportClass" value="${c}">
                 ${c} (<span id="count-${c}">0</span>)

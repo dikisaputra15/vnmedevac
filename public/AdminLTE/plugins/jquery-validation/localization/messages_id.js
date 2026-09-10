@@ -10,7 +10,7 @@
 
 /*
  * Translated default messages for the jQuery validation plugin.
- * Locale: ID (Indonesia; Indonesian)
+ * Locale: ID (Vietnam; Vietnamn)
  */
 $.extend( $.validator.messages, {
 	required: "Kolom ini diperlukan.",

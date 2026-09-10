@@ -49,7 +49,7 @@ class MasterembessyController extends Controller
      */
     public function create()
     {
-         $provinces = Provincesregion::all();
+         $provinces = Provincesregion::orderByRaw('LOWER(provinces_region) ASC')->get();
         return view('pages.master.createembessy', [
             'provinces' => $provinces
         ]);
@@ -105,8 +105,8 @@ class MasterembessyController extends Controller
     public function edit($id)
     {
         $embassy = Embassiees::findOrFail($id);
-        $provinces = Provincesregion::all();
-        $cities = City::all();
+        $provinces = Provincesregion::orderByRaw('LOWER(provinces_region) ASC')->get();
+        $cities = City::where('province_id', $embassy->province_id)->orderByRaw('LOWER(city) ASC')->get();
         return view('pages.master.editembassy', [
             'embassy' => $embassy,
             'provinces' => $provinces,
@@ -188,7 +188,7 @@ class MasterembessyController extends Controller
 
     public function getCities($province_id)
     {
-        $cities = City::where('province_id', $province_id)->get();
+        $cities =  City::where('province_id', $province_id)->orderByRaw('LOWER(city) ASC')->get();
         return response()->json($cities);
     }
 }

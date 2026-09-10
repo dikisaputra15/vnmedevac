@@ -22,9 +22,9 @@
 
          <div class="col-md-12">
             <div class="form-group">
-                <label>Province</label>
+                <label>Province/Municipality</label>
                 <select class="form-control" name="province_id" id="province">
-                        <option value="0">-Choosse Provinces Region-</option>
+                        <option value="0">-Choosse Province/Municipality-</option>
                     @foreach($provinces as $prov)
                         <option value="{{$prov->id}}">{{$prov->provinces_region}}</option>
                     @endforeach
@@ -34,9 +34,9 @@
 
         <div class="col-md-12">
             <div class="form-group">
-                <label for="city">City/Regency</label>
+                <label for="city">Commune/Ward/Special Zone</label>
                 <select name="city" id="city" class="form-control">
-                    <option value="">-Choosse City/Regency-</option>
+                    <option value="">-Choosse Commune/Ward/Special Zone-</option>
                 </select>
             </div>
         </div>
@@ -61,24 +61,18 @@
             </div>
         </div>
 
-        <div class="col-md-12">
+       <div class="col-md-12">
             <div class="form-group">
                 <label>Facility Level</label>
                 <select class="form-control" name="facility_level">
-                    <option value="Class A">
-                        Class A
+                    <option value="Specialized">
+                        Specialized
                     </option>
-                    <option value="Class B">
-                        Class B
+                    <option value="Basic">
+                        Basic
                     </option>
-                    <option value="Class C">
-                        Class C
-                    </option>
-                    <option value="Class D">
-                        Class D
-                    </option>
-                    <option value="Public Health Center (PUSKESMAS)">
-                        Public Health Center (PUSKESMAS)
+                    <option value="Primary">
+                        Primary
                     </option>
                 </select>
             </div>
@@ -103,21 +97,15 @@
                     <label class="form-check-label">Basic</label>
                 </div>
 
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="facility_category" value="Specialized">
-                    <label class="form-check-label">Specialized</label>
-                </div>
             </div>
         </div>
 
-        <div class="col-md-12">
+       <div class="col-md-12">
             <div class="form-group">
                 <label>Icon</label><br>
-                <input type="radio" name="icon" value="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital-pin-red.png"><img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital-pin-red.png" style="width:24; height:24;"> Class A
-                <input type="radio" name="icon" value="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-blue.png"><img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-blue.png" style="width:24; height:24;"> Class B
-                <input type="radio" name="icon" value="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-purple.png"><img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-purple.png" style="width:24; height:24;"> Class C
-                <input type="radio" name="icon" value="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-green.png"><img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-green.png" style="width:24; height:24;"> Class D
-                <input type="radio" name="icon" value="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-tosca.png"><img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-tosca.png" style="width:24; height:24;"> Public Health Center (PUSKESMAS)
+                <input type="radio" name="icon" value="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital-pin-red.png"><img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital-pin-red.png" style="width:24; height:24;">Specialized
+                <input type="radio" name="icon" value="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-blue.png"><img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-blue.png" style="width:24; height:24;">Basic
+                <input type="radio" name="icon" value="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-purple.png"><img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-purple.png" style="width:24; height:24;">Primary
             </div>
         </div>
 

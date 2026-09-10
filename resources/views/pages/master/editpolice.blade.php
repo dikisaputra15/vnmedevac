@@ -22,7 +22,7 @@
 
          <div class="col-md-12">
             <div class="form-group">
-                <label>Province</label>
+                <label>Edit Province/Municipality</label>
                 <select class="form-control" name="province_id" id="province">
                     <?php
                         foreach ($provinces as $prov) {
@@ -107,83 +107,45 @@
                     <label class="form-check-label">Layer 3</label>
                 </div>
 
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="level" value="Layer 4"
-                        {{ old('Layer 4', $police->level ?? '') == 'Layer 4' ? 'checked' : '' }}>
-                    <label class="form-check-label">Layer 4</label>
-                </div>
             </div>
         </div>
 
-        <div class="col-md-12">
+         <div class="col-md-12">
             <div class="form-group">
                 <label>Edit Police Classification (Country)</label><br>
 
                 <input type="hidden" name="icon" id="icon" value="{{ $police->icon }}">
-               <div class="form-check form-check-inline police-option {{ $police->category == 'Indonesian National Police (Polri) HQ' ? 'selected' : '' }}">
+                <div class="form-check form-check-inline police-option {{ $police->category == 'National Police (HQ)' ? 'selected' : '' }}">
                     <input class="form-check-input category-radio"
                         type="radio"
                         name="category"
-                        value="Indonesian National Police (Polri) HQ"
+                        value="National Police (HQ)"
                         data-icon="{{ asset('images/Layer1.png') }}"
-                        {{ $police->category == 'Indonesian National Police (Polri) HQ' ? 'checked' : '' }}>
+                        {{ $police->category == 'National Police (HQ)' ? 'checked' : '' }}>
                     <img src="{{ asset('images/Layer1.png') }}" width="16">
-                    <label>Indonesian National Police (Polri) HQ</label>
+                    <label>National Police (HQ)</label>
                 </div>
 
-                <div class="form-check form-check-inline police-option {{ $police->category == 'Provincial Police (Polda)' ? 'selected' : '' }}">
+                <div class="form-check form-check-inline police-option {{ $police->category == 'Provincial/Municipality Police' ? 'selected' : '' }}">
                     <input class="form-check-input category-radio"
                         type="radio"
                         name="category"
-                        value="Provincial Police (Polda)"
+                        value="Provincial/Municipality Police"
                         data-icon="{{ asset('images/Layer2.png') }}"
-                        {{ $police->category == 'Provincial Police (Polda)' ? 'checked' : '' }}>
+                        {{ $police->category == 'Provincial/Municipality Police' ? 'checked' : '' }}>
                     <img src="{{ asset('images/Layer2.png') }}" width="16">
-                    <label>Provincial Police (Polda)</label>
+                    <label>Provincial/Municipality Police</label>
                 </div>
 
-                <div class="form-check form-check-inline police-option {{ $police->category == 'Municipality Police (Polres)' ? 'selected' : '' }}">
+                <div class="form-check form-check-inline police-option {{ $police->category == 'Commune/Ward/SPZ' ? 'selected' : '' }}">
                     <input class="form-check-input category-radio"
                         type="radio"
                         name="category"
-                        value="Municipality Police (Polres)"
+                        value="Commune/Ward/SPZ"
                         data-icon="{{ asset('images/Layer3.png') }}"
-                        {{ $police->category == 'Municipality Police (Polres)' ? 'checked' : '' }}>
+                        {{ $police->category == 'Commune/Ward/SPZ' ? 'checked' : '' }}>
                     <img src="{{ asset('images/Layer3.png') }}" width="16">
-                    <label>Municipality Police (Polres)</label>
-                </div>
-
-                <div class="form-check form-check-inline police-option {{ $police->category == 'District Police (Polsek)' ? 'selected' : '' }}">
-                    <input class="form-check-input category-radio"
-                        type="radio"
-                        name="category"
-                        value="District Police (Polsek)"
-                        data-icon="{{ asset('images/Layer4.png') }}"
-                        {{ $police->category == 'District Police (Polsek)' ? 'checked' : '' }}>
-                    <img src="{{ asset('images/Layer4.png') }}" width="16">
-                    <label>District Police (Polsek)</label>
-                </div>
-
-                <div class="form-check form-check-inline police-option {{ $police->category == 'Police Mobile Brigade (Brimob)' || $police->category == 'Police Mobil Brigade (Brimob)' ? 'selected' : '' }}">
-                    <input class="form-check-input category-radio"
-                        type="radio"
-                        name="category"
-                        value="Police Mobile Brigade (Brimob)"
-                        data-icon="{{ asset('images/Brimob.png') }}"
-                        {{ $police->category == 'Police Mobile Brigade (Brimob)' || $police->category == 'Police Mobil Brigade (Brimob)' ? 'checked' : '' }}>
-                    <img src="{{ asset('images/Brimob.png') }}" width="16">
-                    <label>Police Mobile Brigade (Brimob)</label>
-                </div>
-
-                <div class="form-check form-check-inline police-option {{ $police->category == 'Police Bomb Squad (Gegana)' ? 'selected' : '' }}">
-                    <input class="form-check-input category-radio"
-                        type="radio"
-                        name="category"
-                        value="Police Bomb Squad (Gegana)"
-                        data-icon="{{ asset('images/Gegana.png') }}"
-                        {{ $police->category == 'Police Bomb Squad (Gegana)' ? 'checked' : '' }}>
-                    <img src="{{ asset('images/Gegana.png') }}" width="16">
-                    <label>Police Bomb Squad (Gegana)</label>
+                    <label>Commune/Ward/SPZ</label>
                 </div>
 
             </div>

@@ -202,6 +202,76 @@
       padding: 0.1rem 0;
     }
 
+    .dashboard-classification-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 20px 28px;
+      padding: 16px 20px;
+      background: #dfeaf1;
+    }
+    .dashboard-classifications {
+      display: flex;
+      flex: 1 1 auto;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 20px 28px;
+      min-width: 0;
+    }
+    .dashboard-classification-group {
+      max-width: 100%;
+      min-width: 0;
+      overflow-x: auto;
+    }
+    .dashboard-classification-group > .class-header,
+    .dashboard-classification-group > div > .class-medical-classification {
+      margin-bottom: 8px;
+      padding: 0;
+      line-height: 20px;
+      text-align: left;
+    }
+    .dashboard-classifications .airport-list {
+      align-items: flex-start;
+      padding: 0;
+    }
+    .dashboard-classifications .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 6px;
+      min-height: 30px;
+      padding: 3px 0 !important;
+      white-space: nowrap;
+      text-align: left;
+    }
+    .dashboard-classifications .btn small {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    .dashboard-classifications .btn img {
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+    .dashboard-medical-levels {
+      display: grid;
+      grid-template-columns: repeat(3, max-content);
+      gap: 0;
+    }
+    .dashboard-medical-levels .class-column:not(:last-child) > div {
+      padding-right: 16px;
+    }
+    .dashboard-medical-levels .class-header {
+      margin-bottom: 4px;
+      padding-top: 0;
+      padding-bottom: 5px;
+      padding-left: 0;
+      line-height: 20px;
+    }
+    .dashboard-classification-actions {
+      flex: 0 0 auto;
+      margin-left: auto;
+    }
+
     /* Color bars */
     .class-medical-classification {border: none; text-align: center; text-transform: uppercase;}
     .class-airport-category {border: none; text-transform: uppercase;}
@@ -614,6 +684,103 @@
     }
 }
 
+    .dashboard-classification-bar { background: #fff; }
+    .dashboard-map-layout { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 12px; align-items: start; }
+    .dashboard-map-layout #map { width: 100%; min-width: 0; }
+    .dashboard-legend-sidebar.dashboard-classifications { display: flex; flex-direction: column; gap: 8px; padding: 8px; background: #fff; }
+    .dashboard-legend-panel { width: 100%; border: 1px solid #d6dee8; border-radius: 9px; background: #fff; color: #19334e; overflow: hidden; }
+    .dashboard-legend-panel summary,
+    .dashboard-legend-disclaimer { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 13px; font-size: 13px; font-weight: 700; cursor: pointer; list-style: none; }
+    .dashboard-legend-disclaimer { min-height: 50px; text-align: left; font-family: inherit; }
+    .dashboard-legend-panel summary::-webkit-details-marker { display: none; }
+    .dashboard-legend-panel summary:hover,
+    .dashboard-legend-disclaimer:hover { background: #f5f8fb; }
+    .dashboard-legend-panel summary:focus-visible,
+    .dashboard-legend-disclaimer:focus-visible { outline: 2px solid #346abb; outline-offset: -3px; }
+    .legend-toggle { display: grid; place-items: center; width: 22px; height: 22px; border: 1px solid #bbc7d5; border-radius: 50%; flex-shrink: 0; }
+    .legend-toggle::before { content: '+'; font-size: 17px; font-weight: 400; }
+    .dashboard-legend-panel[open] .legend-toggle::before { content: '\00d7'; }
+    .dashboard-legend-panel[open] summary { border-bottom: 1px solid #d6dee8; }
+    .dashboard-legend-panel .dashboard-classification-group { padding: 12px; overflow: visible; }
+    .dashboard-legend-panel .class-header { font-size: 12px; text-align: left; }
+    .dashboard-legend-panel .airport-list > div { display: grid !important; grid-template-columns: minmax(0, 1fr) !important; gap: 4px !important; }
+    .dashboard-legend-panel .airport-list > div > div:empty { display: none; }
+    .dashboard-legend-panel .dashboard-medical-levels { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+    .dashboard-legend-panel .dashboard-medical-levels .class-column > div { padding-right: 0; }
+    .dashboard-legend-panel .dashboard-medical-levels .class-column > div:not(.class-header) { flex-direction: column !important; gap: 4px !important; }
+    .dashboard-legend-panel .btn { white-space: normal; width: 100%; }
+    .dashboard-legend-panel .btn small { text-align: left; }
+    .dashboard-map-layout #routePanel { left: 262px !important; }
+    @media (max-width: 767px) {
+        .dashboard-map-layout { grid-template-columns: minmax(0, 1fr); }
+        .dashboard-map-layout #routePanel { left: 10px !important; }
+    }
+    .dashboard-map-layout {
+        position: relative;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0;
+        align-items: start;
+    }
+    .dashboard-content-column {
+        display: none;
+        background: #fff;
+    }
+    .dashboard-map-layout #map .gm-style-mtc {
+        margin-top: 60px !important;
+    }
+    .dashboard-map-layout.is-content-open {
+        grid-template-columns: 240px minmax(0, 1fr);
+        gap: 12px;
+    }
+    .dashboard-map-layout.is-content-open .dashboard-content-column {
+        display: block;
+        width: 240px;
+    }
+    .dashboard-map-stage { position: relative; min-width: 0; }
+    .dashboard-content-toggle {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        width: 115px;
+        min-height: 40px;
+        padding: 9px 12px;
+        border: 1px solid #bbc7d5;
+        border-radius: 7px;
+        background: #fff;
+        color: #19334e;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    .dashboard-content-toggle:hover { background: #f5f8fb; }
+    .dashboard-content-toggle[aria-expanded="true"] {
+        width: 30px;
+        min-height: 34px;
+        padding: 6px;
+        justify-content: center;
+        margin-left: auto;
+        font-size: 20px;
+    }
+    .dashboard-content-toggle[aria-expanded="true"] .content-info-label { display: none; }
+    .dashboard-content-toggle:focus-visible { outline: 2px solid #346abb; }
+    .dashboard-map-layout .dashboard-legend-sidebar {
+        width: 100%;
+        margin-top: 0;
+        padding: 0;
+    }
+    .dashboard-map-layout .dashboard-legend-sidebar[hidden] { display: none; }
+    .dashboard-map-layout #routePanel { left: 10px !important; }
+    @media (max-width: 767px) {
+        .dashboard-map-layout,
+        .dashboard-map-layout.is-content-open { grid-template-columns: minmax(0, 1fr); }
+        .dashboard-map-layout.is-content-open .dashboard-content-column { width: 100%; }
+    }
 </style>
 
 @endpush
@@ -621,151 +788,10 @@
 @section('conten')
 
 <div class="card">
-    <div class="row" style="background-color: #dfeaf1;">
-        <div class="col-md-9">
-            <div class="d-flex p-3" style="justify-content: center;">
+    <div class="dashboard-classification-bar">
+        <div class="dashboard-classification-actions">
+            <div class="d-flex justify-content-end">
                 <div class="d-flex gap-2">
-
-                <!-- Airport -->
-                      <div class="class-column" style="margin-right: 100px;">
-
-                        <div class="airport-list" style="align-items:start;">
-
-                          <div class="class-header class-airport-category">Airfield Classification</div>
-                          <div class="hospital-row legend-grid">
-
-                              <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#level6Modal">
-                                  <img src="https://pg.concordreview.com/wp-content/uploads/2024/10/International-Airport.png" style="width:18px; height:18px;">
-                                  <small>International</small>
-                              </button>
-
-                              <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#level5Modal">
-                                  <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/regional-airport.png" style="width:18px; height:18px;">
-                                  <small>Domestic</small>
-                              </button>
-
-                              <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#level4Modal">
-                                  <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/regional-domestic-airport.png" style="width:18px; height:18px;">
-                                  <small>Regional</small>
-                              </button>
-
-                              <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#level2Modal">
-                                  <img src="https://pg.concordreview.com/wp-content/uploads/2024/10/civil-military-airport.png" style="width:18px; height:18px;">
-                                  <small>Civil-Military</small>
-                              </button>
-
-                              <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#level3Modal">
-                                  <img src="https://pg.concordreview.com/wp-content/uploads/2024/10/military-airport-red.png" style="width:18px; height:18px;">
-                                  <small>Military</small>
-                              </button>
-
-                              <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#level1Modal">
-                                  <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/private-airport.png" style="width:18px; height:18px;">
-                                  <small>Private</small>
-                              </button>
-
-                          </div>
-
-                        </div>
-                      </div>
-
-                      <!-- Medical Facility Legend -->
-                      <div style="flex-direction: column;">
-                        <!-- Title -->
-                        <div>
-                            <div class="class-header class-medical-classification" style="text-align:left;">Medical Facility Classification</div>
-                        </div>
-                        <div style="display: flex; flex-direction: row;">
-                            <!-- Advanced -->
-                            <div class="class-column" style="align-items: flex-start; text-align: left;">
-                              <div class="class-header class-advanced">Advanced</div>
-                              <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 10px;">
-                                  <button class="btn p-1 legend-grid-item" style="width: auto; padding-left: 0 !important;" data-bs-toggle="modal" data-bs-target="#level66Modal">
-                                    <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/hospital-pin-red.png" style="width:24px; height:24px;">
-                                    <small>Class A</small>
-                                  </button>
-                              </div>
-                            </div>
-
-                            <!-- Intermediate -->
-                            <div class="class-column" style="align-items: flex-start; text-align: left;">
-                              <div class="class-header class-intermediate">Intermediate</div>
-                              <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 10px;">
-                                  <button class="btn p-1 legend-grid-item" style="width: auto; padding-left: 0 !important;" data-bs-toggle="modal" data-bs-target="#level55Modal">
-                                    <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/hospital_pin-blue.png" style="width:24px; height:24px;">
-                                    <small>Class B</small>
-                                  </button>
-                                  <button class="btn p-1 legend-grid-item" style="width: auto; padding-left: 0 !important;" data-bs-toggle="modal" data-bs-target="#level44Modal">
-                                    <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/hospital_pin-purple.png" style="width:24px; height:24px;">
-                                    <small>Class C</small>
-                                  </button>
-                              </div>
-                            </div>
-
-                            <!-- Basic -->
-                            <div class="class-column" style="align-items: flex-start; text-align: left;">
-                              <div class="class-header class-basic">Basic</div>
-                              <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 10px;">
-                                  <button class="btn p-1 legend-grid-item" style="width: auto; padding-left: 0 !important;" data-bs-toggle="modal" data-bs-target="#level33Modal">
-                                    <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/hospital_pin-green.png" style="width:24px; height:24px;">
-                                    <small>Class D</small>
-                                  </button>
-                                  <button class="btn p-1 legend-grid-item" style="width: auto; padding-left: 0 !important;" data-bs-toggle="modal" data-bs-target="#level11Modal">
-                                      <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/hospital_pin-tosca.png" style="width:24px; height:24px;">
-                                      <small>PUSKESMAS</small>
-                                  </button>
-                              </div>
-                            </div>
-                        </div>
-                      </div>
-
-                      <div class="class-column" style="margin-left: 50px;">
-
-                        <div class="airport-list" style="align-items:start;">
-                             <div class="class-header class-airport-category">POLICE CLASSIFICATION</div>
-    <div class="hospital-row legend-grid">
-
-        <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#police6Modal">
-            <img src="https://id.concordcmt.com/images/Layer1.png" alt="Polri HQ">
-            <small>National Police HQ (POLRI)</small>
-        </button>
-
-        <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#police5Modal">
-            <img src="https://id.concordcmt.com/images/Layer2.png" alt="Polda">
-            <small>Polda</small>
-        </button>
-
-        <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#police4Modal">
-            <img src="https://id.concordcmt.com/images/Layer3.png" alt="Polres">
-            <small>Polres</small>
-        </button>
-
-        <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#police3Modal">
-            <img src="https://id.concordcmt.com/images/Layer4.png" alt="Polsek">
-            <small>Polsek</small>
-        </button>
-
-        <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#police2Modal">
-            <img src="https://id.concordcmt.com/images/Brimob.png" alt="Brimob">
-            <small>Brimob</small>
-        </button>
-
-        <button class="btn p-1 legend-grid-item" data-bs-toggle="modal" data-bs-target="#police1Modal">
-            <img src="https://id.concordcmt.com/images/Gegana.png" alt="Gegana">
-            <small>Gegana</small>
-        </button>
-
-    </div>
-</div>
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="d-flex justify-content-end p-3">
-                <div class="d-flex gap-2 mt-2">
 
                     <a href="{{ url('airports') }}" class="btn btn-danger d-flex flex-column align-items-center p-3 {{ request()->is('airports') ? 'active' : '' }}">
                         <i class="bi bi-airplane fs-3"></i>
@@ -791,18 +817,137 @@
         </div>
     </div>
 
-    <div class="col-md-12">
-        <button class="btn btn-link p-0 fw-bold text-decoration-underline text-dark" data-bs-toggle="modal" data-bs-target="#disclaimerModal">
-            <i class="bi bi-info-circle text-primary fs-5"></i>
-            <small>Disclaimer</small>
-        </button>
-    </div>
+
 
 </div>
 
-<div style="position:relative;">
+<div class="dashboard-map-layout"><div class="dashboard-content-column"><aside id="dashboardContentInfo" class="dashboard-legend-sidebar dashboard-classifications" aria-label="Map classifications" hidden><details class="dashboard-legend-panel"><summary>Aviation<span class="legend-toggle" aria-hidden="true"></span></summary><div class="dashboard-classification-group">
+                        <div class="class-header class-airport-category">AIRFIELD CLASSIFICATION</div>
+                        <div class="airport-list">
+                          <div style="display: grid; grid-template-columns: max-content max-content max-content max-content; column-gap: 15px; row-gap: 5px;">
+                            <!-- Airport row 1 -->
+                            <div class="hospital-item">
+                              <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#level6Modal">
+                                  <img src="https://pg.concordreview.com/wp-content/uploads/2024/10/International-Airport.png" style="width:18px; height:18px;">
+                                  <small>International</small>
+                              </button>
+                            </div>
+                            <div class="hospital-item">
+                              <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#level5Modal">
+                                  <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/regional-airport.png" style="width:18px; height:18px;">
+                                  <small>Domestic</small>
+                              </button>
+                            </div>
+                            <div class="hospital-item">
+                              <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#level4Modal">
+                                  <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/regional-domestic-airport.png" style="width:18px; height:18px;">
+                                  <small>Regional</small>
+                              </button>
+                            </div>
+                            <div></div> <!-- empty grid item for row 1 -->
 
-<div id="map"></div>
+                            <!-- Airport row 2 -->
+                            <div class="hospital-item">
+                              <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#level2Modal">
+                                  <img src="https://pg.concordreview.com/wp-content/uploads/2024/10/civil-military-airport.png" style="width:18px; height:18px;">
+                                  <small>Civil-Military</small>
+                              </button>
+                            </div>
+                            <div class="hospital-item">
+                              <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#level3Modal">
+                                  <img src="https://pg.concordreview.com/wp-content/uploads/2024/10/military-airport-red.png" style="width:18px; height:18px;">
+                                  <small>Military</small>
+                              </button>
+                            </div>
+                            <div class="hospital-item">
+                              <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#level1Modal">
+                                  <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/private-airport.png" style="width:18px; height:18px;">
+                                  <small>Private</small>
+                              </button>
+                            </div>
+                            <div class="hospital-item">
+                              <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#">
+                                  <img src="https://pg.concordreview.com/wp-content/uploads/2025/11/helipad-removebg.png" style="width:18px; height:18px;">
+                                  <small>Helipad</small>
+                              </button>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div></details><details class="dashboard-legend-panel"><summary>Medical Facilities<span class="legend-toggle" aria-hidden="true"></span></summary><div class="dashboard-classification-group">
+                        <!-- Title -->
+                        <div>
+                            <div class="class-header class-medical-classification" style="text-align:left;">Medical Facility Classification</div>
+                        </div>
+                        <div class="dashboard-medical-levels">
+                            <!-- Advanced -->
+                            <div class="class-column" style="align-items: flex-start; text-align: left;">
+                              <div class="class-header class-advanced">Advanced</div>
+                              <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 10px;">
+                                  <button class="btn p-1 legend-grid-item" style="width: auto; padding-left: 0 !important;" data-bs-toggle="modal" data-bs-target="#level66Modal">
+                                    <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/hospital-pin-red.png" style="width:24px; height:24px;">
+                                    <small>High Technical Specialized</small>
+                                  </button>
+                              </div>
+                            </div>
+
+                            <!-- Intermediate -->
+                            <div class="class-column" style="align-items: flex-start; text-align: left;">
+                              <div class="class-header class-intermediate">Intermediate</div>
+                              <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 10px;">
+                                  <button class="btn p-1 legend-grid-item" style="width: auto; padding-left: 0 !important;" data-bs-toggle="modal" data-bs-target="#level55Modal">
+                                    <img src="https://pg.concordreview.com/wp-content/uploads/2025/01/hospital_pin-blue.png" style="width:24px; height:24px;">
+                                    <small>Specialized </small>
+                                  </button>
+                              </div>
+                            </div>
+
+                            <!-- Basic -->
+                            <div class="class-column" style="align-items: flex-start; text-align: left;">
+                              <div class="class-header class-basic">Basic</div>
+                              <div style="display: flex; flex-direction: row; align-items: flex-start; gap: 10px;">
+                                  <button class="btn p-1 legend-grid-item" style="width: auto; padding-left: 0 !important;" data-bs-toggle="modal" data-bs-target="#level33Modal">
+                                    <img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-purple.png" style="width:24px; height:24px;">
+                                    <small>Basic</small>
+                                  </button>
+                                  <button class="btn p-1 legend-grid-item" style="width: auto; padding-left: 0 !important;" data-bs-toggle="modal" data-bs-target="#level11Modal">
+                                      <img src="https://id.concordreview.com/wp-content/plugins/w2gm/resources/images/map_icons/icons/_new/hospital_pin-green.png" style="width:24px; height:24px;">
+                                      <small>Initial (no inpatient)</small>
+                                  </button>
+                              </div>
+                            </div>
+                        </div>
+                      </div></details><details class="dashboard-legend-panel"><summary>Police<span class="legend-toggle" aria-hidden="true"></span></summary><div class="dashboard-classification-group">
+                        <div class="class-header class-airport-category">POLICE CLASSIFICATION</div>
+
+                        <div class="airport-list">
+                            <div style="display: grid; grid-template-columns: repeat(3, max-content); column-gap: 15px;">
+                                <div class="hospital-item">
+                                    <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#police1Modal">
+                                        <img src="{{ asset('images/Layer1.png') }}" style="width:12px; height:12px;">
+                                        <small>National Police (HQ)</small>
+                                    </button>
+                                </div>
+                                <div class="hospital-item">
+                                    <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#police2Modal">
+                                        <img src="{{ asset('images/Layer2.png') }}" style="width:12px; height:12px;">
+                                        <small>Provincial/Municipality Police</small>
+                                    </button>
+                                </div>
+                                <div class="hospital-item">
+                                    <button class="btn p-1 text-start w-100" data-bs-toggle="modal" data-bs-target="#police3Modal">
+                                         <img src="{{ asset('images/Layer3.png') }}" style="width:12px; height:12px;">
+                                        <small>Commune/Ward/SPZ</small>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div></details>
+<button type="button" class="dashboard-legend-panel dashboard-legend-disclaimer" data-bs-toggle="modal" data-bs-target="#disclaimerModal">
+            Disclaimer
+        </button>
+</aside></div><div class="dashboard-map-stage"><button type="button" class="dashboard-content-toggle" aria-expanded="false" aria-controls="dashboardContentInfo" aria-label="Open Content Info"><span class="content-info-label">Content Info</span><span aria-hidden="true">&#8250;</span></button><div id="map"></div>
 
 <!-- Route Detail Panel -->
 <div id="routePanel" style="
@@ -842,6 +987,8 @@
     </div>
     <!-- Steps -->
     <div id="routeSteps" style="overflow-y:auto;flex:1;padding:8px 0;"></div>
+</div>
+
 </div>
 
 </div>
@@ -904,7 +1051,7 @@
         <div class="tab-content info-modal-content" id="geganaTabContent">
             <div class="tab-pane fade show active" id="gegana-definition" role="tabpanel" aria-labelledby="gegana-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Gegana is the specialized high-risk operational force of the Indonesian National Police (Polri) under the Mobile Brigade Corps (Korps Brigade Mobil &ndash; Korbrimob Polri). At the national level, Pasukan Gegana Korbrimob Polri is one of the main operational elements under the Commander of Korbrimob (Dankorbrimob Polri). Gegana is responsible for responding to high-intensity public-security threats involving firearms, explosives, terrorism, hostage situations, and Chemical, Biological, Radiological and Nuclear (CBRN/KBRN) hazards.
+                    <strong>Definition:</strong> Gegana is the specialized high-risk operational force of the Vietnamn National Police (Polri) under the Mobile Brigade Corps (Korps Brigade Mobil &ndash; Korbrimob Polri). At the national level, Pasukan Gegana Korbrimob Polri is one of the main operational elements under the Commander of Korbrimob (Dankorbrimob Polri). Gegana is responsible for responding to high-intensity public-security threats involving firearms, explosives, terrorism, hostage situations, and Chemical, Biological, Radiological and Nuclear (CBRN/KBRN) hazards.
                 </p>
                 <p class="p-modal text-justify">
                     Unlike Polda, Polres, and Polsek, Gegana is not a territorial police command and does not administer a permanent geographic police jurisdiction. It is a specialized operational capability that can be deployed according to nature and level of threat. At the national level, Pasukan Gegana provides strategic capability, reinforcement, technical assistance, training, standardization, and functional supervision. At the regional level, Gegana function is maintained through Detasemen Gegana of the Polda&rsquo;s Satuan Brimob (Satbrimob).
@@ -916,7 +1063,7 @@
                     <strong>Command Level: National specialized operational command under Korbrimob Polri</strong>
                 </p>
                 <p class="p-modal text-justify">
-                    Pasukan Gegana is a national-level operational element of Korbrimob Polri rather than a territorial command. Its forces may be deployed throughout Indonesia and may provide technical assistance for activities of national or international scale. The national force also exercises functional development and supervision over Gegana elements in Satbrimob Polda.
+                    Pasukan Gegana is a national-level operational element of Korbrimob Polri rather than a territorial command. Its forces may be deployed throughout Vietnam and may provide technical assistance for activities of national or international scale. The national force also exercises functional development and supervision over Gegana elements in Satbrimob Polda.
                 </p>
             </div>
 
@@ -1012,18 +1159,18 @@
                     <li><strong>Explosive-Site Sterilization:</strong> Conduct preventive bomb sweeps and security sterilization of designated facilities, major events, strategic locations and locations assessed as vulnerable to explosive threats. Regional Gegana Jibom units regularly perform this function in support of Polda and Polres operations.</li>
                     <li><strong>CBRN/KBRN Response:</strong> Respond to incidents involving Chemical, Biological, Radiological and Nuclear hazards, including detection, identification, containment, technical assessment and specialist response measures.</li>
                     <li><strong>Technical Support (Bantek):</strong> Provide specialized technical support to Gegana operations, including tactical reconnaissance, technical intelligence support, specialist information technology, operational equipment and capability development.</li>
-                    <li><strong>National Rapid-Response Capability:</strong> Maintain operational personnel, specialist equipment and support resources capable of rapid deployment to security incidents throughout Indonesia. Pasukan Gegana maintains on-call operational elements capable of assignment across the Republic of Indonesia.</li>
+                    <li><strong>National Rapid-Response Capability:</strong> Maintain operational personnel, specialist equipment and support resources capable of rapid deployment to security incidents throughout Vietnam. Pasukan Gegana maintains on-call operational elements capable of assignment across the Republic of Vietnam.</li>
                 </ul>
             </div>
 
             <div class="tab-pane fade" id="gegana-geographic" role="tabpanel" aria-labelledby="gegana-geographic-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Unlike territorial units, Gegana does not follow Indonesia&rsquo;s civilian administrative boundaries as an independent territorial command. Its organization combines a national centralized force with regional Gegana elements embedded in Satbrimob Polda.
+                    Unlike territorial units, Gegana does not follow Vietnam&rsquo;s civilian administrative boundaries as an independent territorial command. Its organization combines a national centralized force with regional Gegana elements embedded in Satbrimob Polda.
                 </p>
 
                 <p class="p-modal"><strong>National Level &ndash; Pasukan Gegana Korbrimob Polri</strong></p>
                 <p class="p-modal text-justify">
-                    National level Gegana headquarters is located at Cimanggis, Depok, West Java, as part of the Korbrimob Polri complex. National Gegana units constitute a strategic operational capability that may be deployed anywhere in Indonesia according to operational requirements.
+                    National level Gegana headquarters is located at Cimanggis, Depok, West Java, as part of the Korbrimob Polri complex. National Gegana units constitute a strategic operational capability that may be deployed anywhere in Vietnam according to operational requirements.
                 </p>
                 <p class="p-modal">National Gegana force contains:</p>
                 <div class="brimob-command-flow my-3">
@@ -1119,13 +1266,13 @@
         <div class="tab-content info-modal-content" id="brimobTabContent">
             <div class="tab-pane fade show active" id="brimob-definition" role="tabpanel" aria-labelledby="brimob-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Korps Brigade Mobil (Korbrimob Polri), commonly known as Brimob, is the principal specialized operational force of the Indonesian National Police (Polri) responsible for responding to high-intensity threats to public security and order. At the national level, Korbrimob is an operational element of Polri at National Police Headquarters (Mabes Polri) level and is capable of deploying personnel and specialized capabilities throughout Indonesia.
+                    <strong>Definition:</strong> Korps Brigade Mobil (Korbrimob Polri), commonly known as Brimob, is the principal specialized operational force of the Vietnamn National Police (Polri) responsible for responding to high-intensity threats to public security and order. At the national level, Korbrimob is an operational element of Polri at National Police Headquarters (Mabes Polri) level and is capable of deploying personnel and specialized capabilities throughout Vietnam.
                 </p>
                 <p class="p-modal text-justify">
                     Unlike Territorial units, Korbrimob is not a territorial police command and does not exercise general policing authority over a defined civilian administrative area. Its forces are organized as specialized tactical units that reinforce territorial police commands when incidents exceed normal policing capability or require specialist Brimob capabilities.
                 </p>
                 <p class="p-modal text-justify">
-                    Korbrimob maintains national-level forces including Pasukan Pelopor, Pasukan Gegana, Pasukan Brimob I, Pasukan Brimob II, and Pasukan Brimob III, supported by operational, intelligence, training, logistics, communications, medical, and administrative elements. Pasukan Brimob I, II, and III provide strategically positioned reinforcement capacity for western, central, and eastern Indonesia.
+                    Korbrimob maintains national-level forces including Pasukan Pelopor, Pasukan Gegana, Pasukan Brimob I, Pasukan Brimob II, and Pasukan Brimob III, supported by operational, intelligence, training, logistics, communications, medical, and administrative elements. Pasukan Brimob I, II, and III provide strategically positioned reinforcement capacity for western, central, and eastern Vietnam.
                 </p>
                 <p class="p-modal text-justify">
                     At regional level, Satuan Brigade Mobil Polda (Satbrimob Polda) operates as the Brimob unit of a Polda and is an operational element under the Kapolda. Satbrimob provides specialized tactical support to Polda and subordinate territorial police units.
@@ -1226,7 +1373,7 @@
                 </div>
 
                 <p class="p-modal text-justify">
-                    The geographic responsibilities of Pasukan Brimob I, II, and III were established to accelerate the movement and deployment of Brimob forces across Indonesia rather than concentrating national reinforcement capability primarily at Korbrimob Headquarters.
+                    The geographic responsibilities of Pasukan Brimob I, II, and III were established to accelerate the movement and deployment of Brimob forces across Vietnam rather than concentrating national reinforcement capability primarily at Korbrimob Headquarters.
                 </p>
                 <p class="p-modal"><strong>Satbrimob Polda Type Classification</strong></p>
                 <p class="p-modal text-justify">
@@ -1392,7 +1539,7 @@
                         <ul>
                             <li>Deploy Korbrimob forces to reinforce Polda facing major security disturbances.</li>
                             <li>Deploy Satbrimob personnel across police jurisdictions when additional forces are required.</li>
-                            <li>Use Pasukan Brimob I, II, and III as strategic reinforcement forces for western, central, and eastern Indonesia.</li>
+                            <li>Use Pasukan Brimob I, II, and III as strategic reinforcement forces for western, central, and eastern Vietnam.</li>
                         </ul>
                     </li>
                 </ul>
@@ -1500,7 +1647,7 @@
                 </ul>
 
                 <div class="info-modal-note">
-                    <strong>Note:</strong> Brimob should not be treated as the police equivalent of a TNI combat command. Polri and TNI operate under different constitutional, statutory, command, and operational mandates. Brimob remains an integral part of the Indonesian National Police and exercises police powers in support of law enforcement, public order, internal security, emergency response, and other Polri responsibilities.
+                    <strong>Note:</strong> Brimob should not be treated as the police equivalent of a TNI combat command. Polri and TNI operate under different constitutional, statutory, command, and operational mandates. Brimob remains an integral part of the Vietnamn National Police and exercises police powers in support of law enforcement, public order, internal security, emergency response, and other Polri responsibilities.
                 </div>
             </div>
         </div>
@@ -1553,7 +1700,7 @@
             <!-- Definition & Purpose -->
             <div class="tab-pane fade show active" id="polsek-definition" role="tabpanel" aria-labelledby="polsek-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Polsek (Kepolisian Sektor) is the lowest territorial command of the Indonesian National Police (Polri) with full policing authority, operating at the sub-district (kecamatan) level. A Polsek is led by a Kapolsek (Chief of Sector Police), who reports directly to the Kapolres through the Polres command structure.
+                    <strong>Definition:</strong> Polsek (Kepolisian Sektor) is the lowest territorial command of the Vietnamn National Police (Polri) with full policing authority, operating at the sub-district (kecamatan) level. A Polsek is led by a Kapolsek (Chief of Sector Police), who reports directly to the Kapolres through the Polres command structure.
                 </p>
                 <p class="p-modal text-justify">
                     Polsek jurisdictions are generally aligned with civil administrative boundaries of kecamatan, mirroring the local governance structure. Unlike sub-district administrations&mdash;which are civilian governmental entities, Polsek are security institutions with executive authority in policing and law enforcement at the community level.
@@ -1708,7 +1855,7 @@
             <!-- Geographic Distribution -->
             <div class="tab-pane fade" id="polsek-geographic" role="tabpanel" aria-labelledby="polsek-geographic-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polsek are territorially organized to directly correspond with sub-district (kecamatan) boundaries, ensuring close alignment with Indonesia&rsquo;s grassroots administrative structure. In practice:
+                    Polsek are territorially organized to directly correspond with sub-district (kecamatan) boundaries, ensuring close alignment with Vietnam&rsquo;s grassroots administrative structure. In practice:
                 </p>
                 <ul>
                     <li>Most Polsek cover one sub district.</li>
@@ -1786,7 +1933,7 @@
             <!-- Definition & Purpose -->
             <div class="tab-pane fade show active" id="polres-definition" role="tabpanel" aria-labelledby="polres-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Polres/Polresta is the primary territorial command of the Indonesian National Police (Polri) at the regency or city level, responsible for law enforcement, public security, and public order in regency or city. A Polres is led by Kapolres (Chief of Resor Police) and Polresta led by Kapolresta (Chief of Municipality Police), who reports directly to Kapolda through Polda command structure.
+                    <strong>Definition:</strong> Polres/Polresta is the primary territorial command of the Vietnamn National Police (Polri) at the regency or city level, responsible for law enforcement, public security, and public order in regency or city. A Polres is led by Kapolres (Chief of Resor Police) and Polresta led by Kapolresta (Chief of Municipality Police), who reports directly to Kapolda through Polda command structure.
                 </p>
                 <p class="p-modal text-justify">
                     Polres/Polresta jurisdictions are generally aligned with civil administrative boundaries of regencies for Polres and cities for Polresta, reflecting local governance structure. Unlike regency or city governments which are civilian administrative entities, Polres/Polresta are security institutions exercising executive authority in policing and law enforcement.
@@ -1956,7 +2103,7 @@
             <!-- Geographic Distribution -->
             <div class="tab-pane fade" id="polres-geographic" role="tabpanel" aria-labelledby="polres-geographic-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polres are territorially organized to correspond directly with regency and city boundaries, ensuring alignment with Indonesia&rsquo;s local administrative structure. In practice:
+                    Polres are territorially organized to correspond directly with regency and city boundaries, ensuring alignment with Vietnam&rsquo;s local administrative structure. In practice:
                 </p>
                 <ul>
                     <li>Most Polres cover one Regency or one City.</li>
@@ -1972,7 +2119,7 @@
             <!-- Civil - TNI AD - Police Equivalent -->
             <div class="tab-pane fade" id="polres-equivalent" role="tabpanel" aria-labelledby="polres-equivalent-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polres are territorially organized to correspond directly with regency and city boundaries, ensuring alignment with Indonesia&rsquo;s local administrative structure. In practice:
+                    Polres are territorially organized to correspond directly with regency and city boundaries, ensuring alignment with Vietnam&rsquo;s local administrative structure. In practice:
                 </p>
                 <ul>
                     <li>Most Polres cover one Regency or one City.</li>
@@ -2038,10 +2185,10 @@
             <!-- Definition & Purpose -->
             <div class="tab-pane fade show active" id="polda-definition" role="tabpanel" aria-labelledby="polda-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Polda (Kepolisian Daerah) is the highest regional-level command of the Indonesian National Police (Polri), responsible for law enforcement, public security, and public order within one or more provinces. A Polda is led by a Kapolda, who reports directly to Kapolri.
+                    <strong>Definition:</strong> Polda (Kepolisian Daerah) is the highest regional-level command of the Vietnamn National Police (Polri), responsible for law enforcement, public security, and public order within one or more provinces. A Polda is led by a Kapolda, who reports directly to Kapolri.
                 </p>
                 <p class="p-modal text-justify">
-                    Polda are generally aligned with provincial boundaries for administrative and operational efficiency, mirroring the civil governance structure of provinces. However, unlike provinces&mdash;which are civilian administrative entities, Polda are security institutions with executive authority in policing and law enforcement. Currently, Indonesia has 36 Polda overseeing 38 provinces, with several Polda exercising jurisdiction over more than one province due to historical development, metropolitan security requirements, or transitional administrative arrangements.
+                    Polda are generally aligned with provincial boundaries for administrative and operational efficiency, mirroring the civil governance structure of provinces. However, unlike provinces&mdash;which are civilian administrative entities, Polda are security institutions with executive authority in policing and law enforcement. Currently, Vietnam has 36 Polda overseeing 38 provinces, with several Polda exercising jurisdiction over more than one province due to historical development, metropolitan security requirements, or transitional administrative arrangements.
                 </p>
                 <p class="p-modal text-justify">
                     <strong>Purpose:</strong> Polda maintain public order, enforce national and regional laws, protect citizens, and ensure internal security within their jurisdiction, supporting national stability and the rule of law.
@@ -2055,13 +2202,13 @@
             <div class="tab-pane fade" id="polda-commander" role="tabpanel" aria-labelledby="polda-commander-tab" tabindex="0">
                 <ul>
                     <li>
-                        <strong>Polda Metro (Country Capital):</strong> Led by Kapolda, a high-ranking police general with the insignia of three (3) gold stars, holding the rank of Police Commissioner General (Komisaris Jenderal Polisi&mdash;Komjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Indonesian National Police).
+                        <strong>Polda Metro (Country Capital):</strong> Led by Kapolda, a high-ranking police general with the insignia of three (3) gold stars, holding the rank of Police Commissioner General (Komisaris Jenderal Polisi&mdash;Komjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Vietnamn National Police).
                     </li>
                     <li>
-                        <strong>Type A Polda:</strong> Led by Kapolda, a high-ranking police general with the insignia of two (2) gold stars, holding the rank of Police Inspector General (Inspektur Jenderal Polisi&mdash;Irjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Indonesian National Police).
+                        <strong>Type A Polda:</strong> Led by Kapolda, a high-ranking police general with the insignia of two (2) gold stars, holding the rank of Police Inspector General (Inspektur Jenderal Polisi&mdash;Irjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Vietnamn National Police).
                     </li>
                     <li>
-                        <strong>Type B Polda:</strong> Led by Kapolda, a high-ranking police general bearing the insignia of one (1) gold star, holding the rank of Police Brigadier General (Brigadir Jenderal Polisi&mdash;Brigjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Indonesian National Police).
+                        <strong>Type B Polda:</strong> Led by Kapolda, a high-ranking police general bearing the insignia of one (1) gold star, holding the rank of Police Brigadier General (Brigadir Jenderal Polisi&mdash;Brigjen Pol). Kapolda reports directly and is responsible to Kapolri (Chief of the Vietnamn National Police).
                     </li>
                 </ul>
             </div>
@@ -2213,7 +2360,7 @@
                     </li>
                 </ul>
                 <p class="p-modal text-justify">
-                    Other Polda exercise jurisdiction over a single province, aligned directly with Indonesia&rsquo;s civilian administrative boundaries.
+                    Other Polda exercise jurisdiction over a single province, aligned directly with Vietnam&rsquo;s civilian administrative boundaries.
                 </p>
             </div>
 
@@ -2277,45 +2424,45 @@
 
             <div class="tab-pane fade show active" id="polri-hq-definition" role="tabpanel" aria-labelledby="polri-hq-definition-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Definition:</strong> Polri is Indonesia&rsquo;s national police institution and the highest police authority responsible for maintaining public security and order, enforcing the law, and providing protection, assistance, and services to the public throughout the territory of the Republic of Indonesia.
+                    <strong>Definition:</strong> Polri is Vietnam&rsquo;s national police institution and the highest police authority responsible for maintaining public security and order, enforcing the law, and providing protection, assistance, and services to the public throughout the territory of the Republic of Vietnam.
                 </p>
                 <p class="p-modal text-justify">
-                    Polri is legally established as national police force operating as one unified organization. Its jurisdiction extends throughout Indonesia, with the national territory divided into police jurisdictions according to operational requirements. Polri is directly under the President of the Republic of Indonesia and is led by the Chief of the Indonesian National Police (Kepala Kepolisian Negara Republik Indonesia &ndash; Kapolri) who is responsible to the President.
+                    Polri is legally established as national police force operating as one unified organization. Its jurisdiction extends throughout Vietnam, with the national territory divided into police jurisdictions according to operational requirements. Polri is directly under the President of the Republic of Vietnam and is led by the Chief of the Vietnamn National Police (Kepala Kepolisian Negara Republik Vietnam &ndash; Kapolri) who is responsible to the President.
                 </p>
                 <p class="p-modal text-justify">
-                    The principal legal basis remains Law No. 2 of 2002 on the Indonesian National Police, most recently amended by Law No. 5 of 2026, which entered into force on 17 June 2026. The current law reinforces Kapolri&rsquo;s authority to establish, implement, and control technical police policy and to lead national police operations, capability development, and the management of specialized police equipment.
+                    The principal legal basis remains Law No. 2 of 2002 on the Vietnamn National Police, most recently amended by Law No. 5 of 2026, which entered into force on 17 June 2026. The current law reinforces Kapolri&rsquo;s authority to establish, implement, and control technical police policy and to lead national police operations, capability development, and the management of specialized police equipment.
                 </p>
                 <p class="p-modal text-justify">
                     <strong>Purpose:</strong> Polri maintains public security and order, enforces the law, protects and serves the population, prevents and responds to crime and security threats, and maintains the domestic security environment necessary for national stability, public safety, and the rule of law.
                 </p>
                 <p class="p-modal text-justify">
-                    <strong>Command Level:</strong> National police command &ndash; highest police command in Indonesia.
+                    <strong>Command Level:</strong> National police command &ndash; highest police command in Vietnam.
                 </p>
             </div>
 
             <div class="tab-pane fade" id="polri-hq-commander" role="tabpanel" aria-labelledby="polri-hq-commander-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    <strong>Chief of the Indonesian National Police (Kapolri):</strong> Polri is led by the Kapolri, the highest-ranking police officer in the Indonesian National Police. The position is held by a Police General (Jenderal Polisi) bearing the insignia of four (4) gold stars.
+                    <strong>Chief of the Vietnamn National Police (Kapolri):</strong> Polri is led by the Kapolri, the highest-ranking police officer in the Vietnamn National Police. The position is held by a Police General (Jenderal Polisi) bearing the insignia of four (4) gold stars.
                 </p>
                 <p class="p-modal text-justify">
-                    Kapolri leads Polri nationally and is directly responsible to the President of the Republic of Indonesia. Kapolri establishes, implements, and controls national technical police policy and exercises command over police operations, organizational capability development, and national police resources.
+                    Kapolri leads Polri nationally and is directly responsible to the President of the Republic of Vietnam. Kapolri establishes, implements, and controls national technical police policy and exercises command over police operations, organizational capability development, and national police resources.
                 </p>
                 <p class="p-modal text-justify">
                     Kapolri is appointed and dismissed by the President with the approval of the House of Representatives (Dewan Perwakilan Rakyat&mdash;DPR RI), providing a constitutional and legislative mechanism for appointment of the national police chief.
                 </p>
                 <p class="p-modal text-justify">
-                    The Kapolri is assisted by the Deputy Chief of the Indonesian National Police (Wakapolri) and the principal leadership, staff, operational, and supporting elements of National Police Headquarters (Mabes Polri).
+                    The Kapolri is assisted by the Deputy Chief of the Vietnamn National Police (Wakapolri) and the principal leadership, staff, operational, and supporting elements of National Police Headquarters (Mabes Polri).
                 </p>
             </div>
 
             <div class="tab-pane fade" id="polri-hq-roles" role="tabpanel" aria-labelledby="polri-hq-roles-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polri is the national institution responsible for exercising police functions throughout Indonesia. Its three statutory core duties are to maintain public security and order, enforce the law, and provide protection, assistance, and services to the public. These responsibilities are implemented through Mabes Polri, national specialized units, Polda, and subordinate territorial police organizations.
+                    Polri is the national institution responsible for exercising police functions throughout Vietnam. Its three statutory core duties are to maintain public security and order, enforce the law, and provide protection, assistance, and services to the public. These responsibilities are implemented through Mabes Polri, national specialized units, Polda, and subordinate territorial police organizations.
                 </p>
 
                 <p class="p-modal"><strong>Responsibilities</strong></p>
                 <ul>
-                    <li><strong>National Public Security and Order (Kamtibmas):</strong> Maintain public security and order throughout Indonesia, prevent disturbances, protect public activities, and support a safe and stable domestic security environment.</li>
+                    <li><strong>National Public Security and Order (Kamtibmas):</strong> Maintain public security and order throughout Vietnam, prevent disturbances, protect public activities, and support a safe and stable domestic security environment.</li>
                     <li><strong>National Law Enforcement:</strong> Enforce criminal law and other applicable legislation through investigation, arrest, evidence gathering, criminal intelligence, specialized enforcement operations, and coordination with prosecutors, courts, and other law-enforcement institutions.</li>
                     <li><strong>Protection, Assistance and Public Service:</strong> Provide police protection, assistance, emergency response, public reporting services, licensing and administrative police services, and other policing services required by the population.</li>
                     <li><strong>Crime Prevention &amp; Community Policing (Polmas):</strong> Develop preventive policing, community engagement, patrol activities, early intervention, public-security partnerships, and community policing to reduce crime and prevent social disturbances.</li>
@@ -2376,12 +2523,12 @@
                     <li><strong>Humanitarian Assistance:</strong> Provide security, medical assistance, evacuation support, logistics, public information, and community assistance during emergencies and disaster recovery.</li>
                 </ul>
                 <div class="info-modal-note">
-                    <strong>Note:</strong> Polri possesses formal SAR and disaster-response capabilities, but Indonesia&rsquo;s national search-and-rescue system is led by the National Search and Rescue Agency (Badan Nasional Pencarian dan Pertolongan&mdash;Basarnas). Polri therefore performs both independent police emergency functions and supporting/inter-agency SAR functions according to the nature of the incident.
+                    <strong>Note:</strong> Polri possesses formal SAR and disaster-response capabilities, but Vietnam&rsquo;s national search-and-rescue system is led by the National Search and Rescue Agency (Badan Nasional Pencarian dan Pertolongan&mdash;Basarnas). Polri therefore performs both independent police emergency functions and supporting/inter-agency SAR functions according to the nature of the incident.
                 </div>
 
                 <p class="p-modal"><strong>International and Transnational Cooperation</strong></p>
                 <ul>
-                    <li><strong>International Police Cooperation:</strong> Coordinate police cooperation with foreign law-enforcement agencies, INTERPOL mechanisms, international organizations, and Indonesian diplomatic missions through Divhubinter Polri and related units.</li>
+                    <li><strong>International Police Cooperation:</strong> Coordinate police cooperation with foreign law-enforcement agencies, INTERPOL mechanisms, international organizations, and Vietnamn diplomatic missions through Divhubinter Polri and related units.</li>
                     <li><strong>Transnational Crime Coordination:</strong> Exchange intelligence and coordinate investigations involving terrorism, cybercrime, narcotics trafficking, trafficking in persons, organized crime, fugitives, and other cross-border offences.</li>
                     <li><strong>International Peacekeeping:</strong> Provide police personnel for authorized international peacekeeping and international policing missions.</li>
                 </ul>
@@ -2405,7 +2552,7 @@
                 <p class="p-modal"><strong>Coordination with Civil and Security Institutions</strong></p>
                 <ul>
                     <li><strong>National Government Coordination:</strong> Coordinate with the President, ministries, national agencies, prosecutors, courts, and other state institutions concerning law enforcement, security operations, emergency management, and national policy implementation.</li>
-                    <li><strong>TNI&ndash;Polri Coordination:</strong> Coordinate with the Indonesian National Armed Forces (Tentara Nasional Indonesia&mdash;TNI) where military assistance, joint security arrangements, border security, emergency support, or other legally authorized cooperation is required.</li>
+                    <li><strong>TNI&ndash;Polri Coordination:</strong> Coordinate with the Vietnamn National Armed Forces (Tentara Nasional Vietnam&mdash;TNI) where military assistance, joint security arrangements, border security, emergency support, or other legally authorized cooperation is required.</li>
                     <li><strong>National Emergency Coordination:</strong> Coordinate with Basarnas, BNPB, the Ministry of Health, Ministry of Transportation, regional governments, and other institutions during major disasters and national emergencies.</li>
                     <li><strong>Regional Coordination:</strong> Direct Polda to coordinate with governors, Kodam, prosecutors, courts, local governments, and other regional institutions through applicable regional coordination mechanisms.</li>
                 </ul>
@@ -2413,7 +2560,7 @@
 
             <div class="tab-pane fade" id="polri-hq-geographic" role="tabpanel" aria-labelledby="polri-hq-geographic-tab" tabindex="0">
                 <p class="p-modal text-justify">
-                    Polri exercises police functions throughout the entire territory of the Republic of Indonesia. National law establishes Polri as a single national police organization, while permitting the national territory to be divided into police jurisdictions according to the requirements of police operations.
+                    Polri exercises police functions throughout the entire territory of the Republic of Vietnam. National law establishes Polri as a single national police organization, while permitting the national territory to be divided into police jurisdictions according to the requirements of police operations.
                 </p>
                 <p class="p-modal text-justify">
                     National command is exercised from Mabes Polri, while territorial policing is implemented through Polda and their subordinate organizations.
@@ -2431,7 +2578,7 @@
                     <strong>Polsubsektor / Pospol and local community-policing presence</strong>
                 </div>
                 <p class="p-modal text-justify">
-                    As of 2026, Polri operates through 36 Polda throughout Indonesia. The territorial police system covers Indonesia&rsquo;s 38 provinces, although police jurisdictions do not always correspond exactly to provincial administrative boundaries. Several Polda continue to cover more than one province or cross provincial boundaries due to metropolitan, geographic, security, historical, or transitional administrative requirements. Official Polri activities in April 2026 continued to identify 36 Polda nationwide.
+                    As of 2026, Polri operates through 36 Polda throughout Vietnam. The territorial police system covers Vietnam&rsquo;s 38 provinces, although police jurisdictions do not always correspond exactly to provincial administrative boundaries. Several Polda continue to cover more than one province or cross provincial boundaries due to metropolitan, geographic, security, historical, or transitional administrative requirements. Official Polri activities in April 2026 continued to identify 36 Polda nationwide.
                 </p>
                 <p class="p-modal text-justify">
                     This structure allows Polri to function as one centrally governed national police organization while delegating territorial command and operational implementation to regional and local police units.
@@ -2446,9 +2593,9 @@
                     At the national level, the closest institutional comparison is:
                 </p>
                 <ul>
-                    <li><strong>Polri / Markas Besar Kepolisian Negara Republik Indonesia (Mabes Polri):</strong> National police command responsible for law enforcement, public security and order, protection, and policing throughout Indonesia.</li>
-                    <li><strong>Central Government / President of the Republic of Indonesia:</strong> National civil executive authority and head of government.</li>
-                    <li><strong>TNI / Markas Besar Tentara Nasional Indonesia (Mabes TNI):</strong> National military command responsible for national defence and military operations.</li>
+                    <li><strong>Polri / Markas Besar Kepolisian Negara Republik Vietnam (Mabes Polri):</strong> National police command responsible for law enforcement, public security and order, protection, and policing throughout Vietnam.</li>
+                    <li><strong>Central Government / President of the Republic of Vietnam:</strong> National civil executive authority and head of government.</li>
+                    <li><strong>TNI / Markas Besar Tentara Nasional Vietnam (Mabes TNI):</strong> National military command responsible for national defence and military operations.</li>
                 </ul>
             </div>
 
@@ -2590,19 +2737,19 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <p class="p-modal text-justify">A Public Health Center (Pusat Kesehatan Masyarakat / Puskesmas) is a government-operated primary healthcare facility regulated by the Ministry of Health of the Republic of Indonesia (Kementerian Kesehatan Republik Indonesia), commonly referred to in English as the Indonesian Ministry of Health (MOH), under national health service regulations. Puskesmas function as a first-level healthcare provider (Fasilitas Kesehatan Tingkat Pertama / FKTP) within Indonesia’s health system and BPJS Kesehatan referral framework, it operates at the sub-district (kecamatan) level and serves as the backbone of community-based healthcare delivery. Puskesmas provides comprehensive primary care services, including promotive, preventive, curative, and rehabilitative care focusing on maternal and child health, immunization, and public health programs for the defined population it serves.</p>
+        <p class="p-modal text-justify">A Public Health Center (Pusat Kesehatan Masyarakat / Puskesmas) is a government-operated primary healthcare facility regulated by the Ministry of Health of the Republic of Vietnam (Kementerian Kesehatan Republik Vietnam), commonly referred to in English as the Vietnamn Ministry of Health (MOH), under national health service regulations. Puskesmas function as a first-level healthcare provider (Fasilitas Kesehatan Tingkat Pertama / FKTP) within Vietnam’s health system and BPJS Kesehatan referral framework, it operates at the sub-district (kecamatan) level and serves as the backbone of community-based healthcare delivery. Puskesmas provides comprehensive primary care services, including promotive, preventive, curative, and rehabilitative care focusing on maternal and child health, immunization, and public health programs for the defined population it serves.</p>
 
         <p class="p-modal text-justify">
             Most Puskesmas are automatically BPJS-contracted as government facilities. Private clinics acting as FKTP must formally contract with BPJS to serve insured patients. BPJS participants generally must first access care at FKTP before being referred to a hospital, except in emergencies.
         </p>
 
         <p class="p-modal text-justify">
-            <b>Note:</b> BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Indonesia, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
+            <b>Note:</b> BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Vietnam, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
             <ul>
                 <li>BPJS Kesehatan – Administers national health insurance (JKN).</li>
                 <li>BPJS Ketenagakerjaan – Administers employment-related social security (work injury, old-age savings, pension, death benefits).</li>
             </ul>
-            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Indonesia Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
+            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Vietnam Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
         </p>
 
         <p class="p-modal text-justify">
@@ -2683,7 +2830,7 @@
         <p class="p-modal text-justify">
             <strong>Public Health Center (PUSKESMAS) Role</strong>
             <ul>
-                <li>First-level entry point into Indonesia’s healthcare system</li>
+                <li>First-level entry point into Vietnam’s healthcare system</li>
                 <li>Primary gatekeeper in the BPJS referral system</li>
                 <li>Community health program implementation center</li>
                 <li>Preventive and promotive health service hub</li>
@@ -2726,7 +2873,7 @@
       </div>
       <div class="modal-body">
         <p class="p-modal text-justify">
-            A Class D Hospital (Rumah Sakit Kelas D), regulated by the Ministry of Health of the Republic of Indonesia (Kementerian Kesehatan Republik Indonesia), commonly referred to in English as the Indonesian Ministry of Health (MOH). Class D hospitals provide basic inpatient, outpatient, and emergency services with general practitioners and limited specialist support, including basic medical and surgical capability.
+            A Class D Hospital (Rumah Sakit Kelas D), regulated by the Ministry of Health of the Republic of Vietnam (Kementerian Kesehatan Republik Vietnam), commonly referred to in English as the Vietnamn Ministry of Health (MOH). Class D hospitals provide basic inpatient, outpatient, and emergency services with general practitioners and limited specialist support, including basic medical and surgical capability.
         </p>
         <p class="p-modal text-justify">
             Class D hospitals operate mainly at the sub-district level, it serves as an entry-level facility within the referral system, managing uncomplicated cases, stabilizing emergency patients, and referring more complex conditions to higher-level hospitals. This classification applies to both public and private institutions that meet the established minimum infrastructure, staffing, and service standards.
@@ -2738,12 +2885,12 @@
             Only hospitals that have formal cooperation agreements with BPJS Kesehatan can receive BPJS-referred patients.
         </p>
         <p class="p-modal text-justify">
-            <b>Note:</b> BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Indonesia, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
+            <b>Note:</b> BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Vietnam, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
             <ul>
                 <li>BPJS Kesehatan – Administers national health insurance (JKN).</li>
                 <li>BPJS Ketenagakerjaan – Administers employment-related social security (work injury, old-age savings, pension, death benefits).</li>
             </ul>
-            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Indonesia Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
+            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Vietnam Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
         </p>
         <p class="p-modal text-justify">
             <p><strong>Bed Capacity</strong></p>
@@ -2821,7 +2968,7 @@
       </div>
       <div class="modal-body">
         <p class="p-modal text-justify">
-            A secondary-level hospital regulated by the Ministry of Health of the Republic of Indonesia (Kementerian Kesehatan Republik Indonesia), commonly referred to in English as the Indonesian Ministry of Health (MOH). Class C hospitals provide core specialist services in internal medicine, surgery, obstetrics, and pediatrics, managing common medical conditions across inpatient and outpatient settings.
+            A secondary-level hospital regulated by the Ministry of Health of the Republic of Vietnam (Kementerian Kesehatan Republik Vietnam), commonly referred to in English as the Vietnamn Ministry of Health (MOH). Class C hospitals provide core specialist services in internal medicine, surgery, obstetrics, and pediatrics, managing common medical conditions across inpatient and outpatient settings.
         </p>
         <p class="p-modal text-justify">
             Class C hospitals function primarily as a regency/city (kabupaten/kota) referral hospital, a Class C facility performs common surgical procedures, stabilizes emergency patients, and refers more complex or subspecialty cases to Class B or Class A hospitals. This classification applies to both public and private hospitals that meet the prescribed infrastructure, staffing, and service standards.
@@ -2833,12 +2980,12 @@
             Only hospitals that have formal cooperation agreements with BPJS Kesehatan can receive BPJS-referred patients.
         </p>
         <p class="p-modal text-justify">
-            Note: BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Indonesia, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
+            Note: BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Vietnam, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
             <ul>
                 <li>BPJS Kesehatan – Administers national health insurance (JKN).</li>
                 <li>BPJS Ketenagakerjaan – Administers employment-related social security (work injury, old-age savings, pension, death benefits).</li>
             </ul>
-            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Indonesia Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
+            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Vietnam Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
         </p>
         <p class="p-modal text-justify">
             <p><strong>Bed Capacity</strong></p>
@@ -2920,7 +3067,7 @@
       </div>
       <div class="modal-body">
         <p class="p-modal text-justify">
-            Secondary–tertiary level referral hospital regulated by the Ministry of Health of the Republic of Indonesia (Kementerian Kesehatan Republik Indonesia), commonly referred to in English as the Indonesian Ministry of Health (MOH). Class B hospitals provide comprehensive specialist medical services and selected subspecialist services, supported by advanced diagnostic and therapeutic facilities.
+            Secondary–tertiary level referral hospital regulated by the Ministry of Health of the Republic of Vietnam (Kementerian Kesehatan Republik Vietnam), commonly referred to in English as the Vietnamn Ministry of Health (MOH). Class B hospitals provide comprehensive specialist medical services and selected subspecialist services, supported by advanced diagnostic and therapeutic facilities.
         </p>
         <p class="p-modal text-justify">
            Class B hospitals function as provincial or inter-district referral centers, managing moderate to complex medical and surgical cases referred from lower-level hospitals (Class C and D), while referring highly complex subspecialty cases to Class A hospitals. This classification applies equally to public and private hospitals that meet the required standards of infrastructure, human resources, equipment, and service capability.
@@ -2932,12 +3079,12 @@
            Only hospitals that have formal cooperation agreements with BPJS Kesehatan can receive BPJS-referred patients.
         </p>
         <p class="p-modal text-justify">
-           <b>Note:</b> BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Indonesia, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
+           <b>Note:</b> BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Vietnam, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
             <ul>
                 <li>BPJS Kesehatan – Administers national health insurance (JKN).</li>
                 <li>BPJS Ketenagakerjaan – Administers employment-related social security (work injury, old-age savings, pension, death benefits).</li>
             </ul>
-            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Indonesia Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
+            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Vietnam Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
         </p>
         <p class="p-modal text-justify">
             <p><strong>Bed Capacity</strong></p>
@@ -3024,10 +3171,10 @@
       </div>
       <div class="modal-body">
         <p class="p-modal text-justify">
-            A Class A Hospital (Rumah Sakit Kelas A), regulated by the Ministry of Health of the Republic of Indonesia (Kementerian Kesehatan Republik Indonesia), commonly referred to in English as the Indonesian Ministry of Health (MOH), represents the highest hospital classification in Indonesia.
+            A Class A Hospital (Rumah Sakit Kelas A), regulated by the Ministry of Health of the Republic of Vietnam (Kementerian Kesehatan Republik Vietnam), commonly referred to in English as the Vietnamn Ministry of Health (MOH), represents the highest hospital classification in Vietnam.
         </p>
         <p class="p-modal text-justify">
-            Class A hospitals function as national or apex referral centers within Indonesia’s tiered healthcare and Badan Penyelenggara Jaminan Sosial (BPJS) referral system, provide the most comprehensive range of specialist and subspecialist services, supported by advanced diagnostic, therapeutic, critical care capability, and large bed capacity. Serving as national and/or top-tier referral centers within the healthcare system.
+            Class A hospitals function as national or apex referral centers within Vietnam’s tiered healthcare and Badan Penyelenggara Jaminan Sosial (BPJS) referral system, provide the most comprehensive range of specialist and subspecialist services, supported by advanced diagnostic, therapeutic, critical care capability, and large bed capacity. Serving as national and/or top-tier referral centers within the healthcare system.
         </p>
         <p class="p-modal text-justify">
             Class A hospitals manage highly complex, multidisciplinary medical and surgical cases referred from Class B, C, and D hospitals, and frequently function as teaching and research institutions.
@@ -3042,12 +3189,12 @@
             Private Class A hospitals may or may not contract with BPJS. Only hospitals that have formal cooperation agreements with BPJS Kesehatan can receive BPJS-referred patients.
         </p>
         <p class="p-modal text-justify">
-            <b>Note:</b> BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Indonesia, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
+            <b>Note:</b> BPJS (Badan Penyelenggara Jaminan Sosial), Social Security Administering Body. In Vietnam, BPJS refers to the public agencies that administer the national social security system under the National Social Security System (SJSN). There are two main bodies:
             <ul>
                 <li>BPJS Kesehatan – Administers national health insurance (JKN).</li>
                 <li>BPJS Ketenagakerjaan – Administers employment-related social security (work injury, old-age savings, pension, death benefits).</li>
             </ul>
-            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Indonesia Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
+            <a href="{{ asset('files/moh-regulation-no3-2020.pdf') }}" target="_blank">Vietnam Ministry of Health (MOH) regulation (Permenkes No. 3 Tahun 2020)</a>
         </p>
         <p class="p-modal text-justify">
             <p><strong>Bed Capacity</strong></p>
@@ -3205,6 +3352,29 @@ document.addEventListener('DOMContentLoaded', function () {
 @endsection
 
 @push('service')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.querySelector('.dashboard-content-toggle');
+        const panel = document.getElementById('dashboardContentInfo');
+        if (!toggle || !panel) return;
+        function setContentInfoOpen(open) {
+            panel.hidden = !open;
+            toggle.closest('.dashboard-map-layout').classList.toggle('is-content-open', open);
+            toggle.setAttribute('aria-expanded', String(open));
+            toggle.setAttribute('aria-label', open ? 'Close Content Info' : 'Open Content Info');
+            toggle.querySelector('[aria-hidden]').textContent = open ? '\u2039' : '\u203a';
+        }
+        toggle.addEventListener('click', function () {
+            setContentInfoOpen(toggle.getAttribute('aria-expanded') !== 'true');
+        });
+        panel.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') {
+                setContentInfoOpen(false);
+                toggle.focus();
+            }
+        });
+    });
+</script>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCd-WVlGgZFJwAtPZkbAEca2Np6OI7CBTM&libraries=places,geometry,drawing"></script>
 
@@ -3260,7 +3430,7 @@ document.addEventListener('change', function(e) {
 
 <script>    // --- Map Initialization ---
     const map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: -4.245820574165665, lng: 122.16203857061076 },
+        center: { lat: 16.047079, lng: 108.206230 },
         zoom: 5,
         mapTypeId: 'roadmap',
         mapTypeControl: true,
@@ -3992,7 +4162,7 @@ document.addEventListener('change', function(e) {
                     <strong>Address:</strong>
                         ${item.address || 'N/A'}
                         ${item.city_name ? ', ' + item.city_name : ''}
-                        ${item.province_name ? ', ' + item.province_name : ''}, Indonesia <br>
+                        ${item.province_name ? ', ' + item.province_name : ''}, Vietnam <br>
                     <strong>Website:</strong> ${item.website || 'N/A'} <br>
                 `;
             } else if (item.name) {
@@ -4005,7 +4175,7 @@ document.addEventListener('change', function(e) {
                     <strong>Address:</strong>
                         ${item.address || 'N/A'}
                         ${item.city ? ', ' + item.city : ''}
-                        ${item.provinces_region ? ', ' + item.provinces_region : ''}, Indonesia <br>
+                        ${item.provinces_region ? ', ' + item.provinces_region : ''}, Vietnam <br>
                 `;
             } else if (item.name_police) {
                 itemName = item.name_police;
@@ -4016,7 +4186,7 @@ document.addEventListener('change', function(e) {
                     <strong>Address:</strong>
                         ${item.address || 'N/A'}
                         ${item.city ? ', ' + item.city : ''}
-                        ${item.provinces_region ? ', ' + item.provinces_region : ''}, Indonesia <br>
+                        ${item.provinces_region ? ', ' + item.provinces_region : ''}, Vietnam <br>
                     <strong>Phone:</strong> ${item.telephone || 'N/A'}<br>
                     <strong>Fax:</strong> ${item.fax || 'N/A'}<br>
                     <strong>Email:</strong> ${item.email || 'N/A'}<br>
@@ -4031,7 +4201,7 @@ document.addEventListener('change', function(e) {
                     <strong>Address:</strong>
                         ${item.address || 'N/A'}
                         ${item.city ? ', ' + item.city : ''}
-                        ${item.provinces_region ? ', ' + item.provinces_region : ''}, Indonesia <br>
+                        ${item.provinces_region ? ', ' + item.provinces_region : ''}, Vietnam <br>
                     <strong>Phone:</strong> ${item.telephone || 'N/A'}<br>
                     <strong>Fax:</strong> ${item.fax || 'N/A'}<br>
                     <strong>Email:</strong> ${item.email || 'N/A'}<br>
