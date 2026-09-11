@@ -2701,7 +2701,7 @@ async function fetchPoliceData(filters = {}) {
     }
 
     try {
-        const res = await fetch(`{{ url('/api/polices') }}?${params.toString()}`, {
+        const res = await fetch(`/api/polices?${params.toString()}`, {
             headers: { Accept: 'application/json' }
         });
         if (!res.ok) throw new Error(`Police API returned HTTP ${res.status}`);
