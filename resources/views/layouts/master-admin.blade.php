@@ -52,4 +52,5 @@
     <!-- /.content -->
 </div>
   <!-- /.content-wrapper -->
+@include('layouts.clearable-radios')
 @include('layouts.footer')
