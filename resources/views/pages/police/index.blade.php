@@ -2717,22 +2717,35 @@ async function fetchPoliceData(filters = {}) {
 }
 
 // === Marker POLICE ===
+function policePosition(police) {
+    const values = [police.latitude, police.longitude];
+    if (values.some(value => value == null || String(value).trim() === '')) return null;
+    const [lat, lng] = values.map(Number);
+    if (!Number.isFinite(lat) || !Number.isFinite(lng) ||
+        Math.abs(lat) > 90 || Math.abs(lng) > 180) return null;
+    return { lat, lng };
+}
+
 function addPoliceMarkers(data) {
     policeMarkers.forEach(m => m.setMap(null));
     policeMarkers = [];
 
     const bounds = new google.maps.LatLngBounds();
+    const categoryIcons = {
+        'National Police (HQ)': '/images/Layer1.png',
+        'Provincial/Municipality Police': '/images/Layer2.png',
+        'Commune/Ward/SPZ': '/images/Layer3.png'
+    };
 
     data.forEach(police => {
-        if (!police.latitude || !police.longitude) return;
-
-        const position = { lat: parseFloat(police.latitude), lng: parseFloat(police.longitude) };
+        const position = policePosition(police);
+        if (!position) return;
 
         const marker = new google.maps.Marker({
             position,
             map,
             icon: {
-                url: police.icon || 'https://png.pngtree.com/png-vector/20221211/ourmid/pngtree-minimal-location-map-icon-logo-symbol-vector-design-transparent-background-png-image_6520892.png',
+                url: categoryIcons[(police.category || '').trim()] || '/images/icon-police.png',
                 scaledSize: new google.maps.Size(12, 12)
             }
         });
@@ -2814,6 +2827,7 @@ function addPoliceMarkers(data) {
 
     if (policeMarkers.length > 0)
         map.fitBounds(bounds, 50);
+
 }
 
 // === Apply Filter POLICE ===
