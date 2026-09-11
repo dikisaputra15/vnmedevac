@@ -2701,11 +2701,18 @@ async function fetchPoliceData(filters = {}) {
     }
 
     try {
-        const res = await fetch(`/api/polices?${params.toString()}`);
-        return res.ok ? await res.json() : [];
+        const res = await fetch(`{{ url('/api/polices') }}?${params.toString()}`, {
+            headers: { Accept: 'application/json' }
+        });
+        if (!res.ok) throw new Error(`Police API returned HTTP ${res.status}`);
+        const result = await res.json();
+        if (!Array.isArray(result.polices) || !result.categoryCounts) {
+            throw new Error('Invalid police API response');
+        }
+        return result;
     } catch (e) {
         console.error('Error fetching police:', e);
-        return [];
+        return null;
     }
 }
 
@@ -2829,6 +2836,11 @@ async function applyPoliceFilters() {
     }
 
     const result = await fetchPoliceData(filters);
+    if (!result) {
+        document.getElementById('totalCountDisplay').textContent =
+            'Unable to load police data. Please try again.';
+        return;
+    }
 
     const polices = result.polices;
     const categoryCounts = result.categoryCounts;
