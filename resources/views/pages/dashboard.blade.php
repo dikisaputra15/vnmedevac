@@ -4184,7 +4184,7 @@ document.addEventListener('change', function(e) {
                     <h5 style="border-bottom:1px solid #cccccc;"><a href="${detailUrl}" style="color:inherit;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#1a73e8'" onmouseout="this.style.color='inherit'">${itemName}</a></h5>
                     <strong>Category:</strong> ${item.category || 'N/A'}<br>
                     <strong>Address:</strong>
-                        ${item.address || 'N/A'}
+                        ${item.location || 'N/A'}
                         ${item.city ? ', ' + item.city : ''}
                         ${item.provinces_region ? ', ' + item.provinces_region : ''}, Vietnam <br>
                     <strong>Phone:</strong> ${item.telephone || 'N/A'}<br>
@@ -4199,7 +4199,7 @@ document.addEventListener('change', function(e) {
                 popupContent = `
                     <h5 style="border-bottom:1px solid #cccccc;"><a href="${detailUrl}" style="color:inherit;text-decoration:none;transition:color 0.2s;" onmouseover="this.style.color='#1a73e8'" onmouseout="this.style.color='inherit'">${itemName}</a></h5>
                     <strong>Address:</strong>
-                        ${item.address || 'N/A'}
+                        ${item.location || 'N/A'}
                         ${item.city ? ', ' + item.city : ''}
                         ${item.provinces_region ? ', ' + item.provinces_region : ''}, Vietnam <br>
                     <strong>Phone:</strong> ${item.telephone || 'N/A'}<br>
