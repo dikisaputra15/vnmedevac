@@ -273,7 +273,7 @@ document.querySelectorAll('.category-radio').forEach(radio => {
                 type: 'GET',
                 success: function (data) {
                     $('#city').empty();
-                    $('#city').append('<option value="">-- Choosse Regency / City --</option>');
+                    $('#city').append('<option value="">-- Choosse Commune/Ward/Special Zone --</option>');
                     $.each(data, function (key, city) {
                         $('#city').append('<option value="' + city.id + '">' + city.city + '</option>');
                     });
@@ -281,7 +281,7 @@ document.querySelectorAll('.category-radio').forEach(radio => {
             });
         } else {
             $('#city').empty();
-            $('#city').append('<option value="">-- Choosse Regency / City  --</option>');
+            $('#city').append('<option value="">-- Choosse Commune/Ward/Special Zone  --</option>');
         }
     });
 </script>
