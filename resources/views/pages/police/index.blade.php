@@ -193,6 +193,22 @@
 
     /* === Image-only modals (Police Area Layer, Cmd Flow) ===
        Dialog menyesuaikan lebar gambar, jadi tidak ada ruang kosong di kiri-kanan. */
+    .police-layer-modal-dialog {
+        width: 96vw;
+        max-width: 1600px;
+    }
+    .police-layer-modal-dialog .modal-content {
+        height: 90vh;
+        border: none;
+        overflow: hidden;
+    }
+    .police-layer-iframe {
+        display: block;
+        width: 100%;
+        height: calc(90vh - 48px);
+        border: 0;
+    }
+
     .image-modal-dialog {
         /* --img-ratio = lebar/tinggi gambar, di-set per modal.
            Lebar dialog = tinggi gambar maksimal x rasio + padding body. */
@@ -1242,7 +1258,7 @@
 </div>
 
 <div class="modal fade" id="policeAreaLayerModal" tabindex="-1" aria-labelledby="policeAreaLayerLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+  <div class="modal-dialog modal-dialog-centered police-layer-modal-dialog">
     <div class="modal-content">
       <div class="modal-header py-2">
         <div class="d-flex align-items-center gap-2">
@@ -1251,25 +1267,8 @@
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-            <p class="p-modal text-justify">
-                <strong>1. Strategic Command:</strong> Strategic command is exercised by the Minister of Public Security, supported by the Deputy Ministers, who establish national public security policies, strategic priorities, organizational reforms, and operational directives. They provide centralized leadership over the CAND, ensuring the integration of national security, law enforcement, intelligence, and public administration in accordance with the Constitution, laws, and policies of the CPV and the Government.
-            </p>
-            <p class="p-modal text-justify">
-                <strong>2. Headquarters Command:</strong> Headquarters command is performed by the MPS through its Office, specialized departments, and operational commands. These headquarters components formulate doctrine, develop national policies, allocate resources, supervise personnel, coordinate nationwide operations, and provide professional guidance to subordinate Public Security units, ensuring standardized implementation of public security functions across the country.
-            </p>
-            <p class="p-modal text-justify">
-                <strong>3. Functional Command:</strong> Functional command consists of the Ministry's specialized departments and commands responsible for specific operational fields, including national security, criminal investigation, economic crime, drug enforcement, cyber security, immigration, traffic policing, fire and rescue, administrative management, prison management, and mobile police operations. These specialized units develop professional policies, direct nationwide operations within their respective fields, provide technical and investigative support, and coordinate major inter-provincial or national-level cases.
-            </p>
-            <p class="p-modal text-justify">
-                <strong>4. Territorial Command:</strong> Territorial command is exercised through the Provincial and Municipal Public Security Departments and their subordinate Ward and Commune Police Stations, forming the nationwide territorial policing network. These units implement national public security policies at the local level, maintain political security, public order, and social safety, deliver administrative public security services, and coordinate with local authorities while remaining under the unified command and professional supervision of the MPS.
-            </p>
-            <p class="p-modal mb-2"><strong>Sources:</strong></p>
-            <ul class="mb-0">
-                <li><a class="text-break" href="https://english.luatvietnam.vn/" target="_blank" rel="noopener noreferrer">https://english.luatvietnam.vn/</a></li>
-                <li><a class="text-break" href="https://en.bocongan.gov.vn/about/history-of-peoples-public-security-forces-of-vietnam" target="_blank" rel="noopener noreferrer">https://en.bocongan.gov.vn/about/history-of-peoples-public-security-forces-of-vietnam</a></li>
-                <li><a class="text-break" href="https://www.vietnam-briefing.com/news/vietnams-government-introduces-official-plan-for-provincial-mergers.html/" target="_blank" rel="noopener noreferrer">https://www.vietnam-briefing.com/news/vietnams-government-introduces-official-plan-for-provincial-mergers.html/</a></li>
-            </ul>
+      <div class="modal-body p-0">
+        <iframe src="{{ asset('Vietnam_Police_Layer.html') }}" title="Vietnam Police Area Layer" class="police-layer-iframe"></iframe>
       </div>
     </div>
   </div>
